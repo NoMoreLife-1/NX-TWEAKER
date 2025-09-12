@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NX TWEAKER</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <nav class="sidebar" id="sidebar">
+
+            <div class="logo-container">
+                <img src="./img/nx.png" alt="NH Tweaker Logo" class="logo">
+            </div>
+            
+            <div class="nav-buttons">
+                <button class="nav-btn active" data-page="dashboard">
+                    <div class="btn-glow"></div>
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                    <div class="btn-ripple"></div>
+                </button>
+                <button class="nav-btn" data-page="clean">
+                    <div class="btn-glow"></div>
+                    <i class="fas fa-broom"></i>
+                    <span>Clean</span>
+                    <div class="btn-ripple"></div>
+                </button>
+                <button class="nav-btn" data-page="gameloop">
+                    <div class="btn-glow"></div>
+                    <i class="fas fa-gamepad"></i>
+                    <span>GameLoop</span>
+                    <div class="btn-ripple"></div>
+                </button>
+                <button class="nav-btn" data-page="tweeks">
+                    <div class="btn-glow"></div>
+                    <i class="fas fa-cogs"></i>
+                    <span>Tweeks</span>
+                    <div class="btn-ripple"></div>
+                </button>
+                <button class="nav-btn" data-page="settings">
+                    <div class="btn-glow"></div>
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Settings</span>
+                    <div class="btn-ripple"></div>
+                </button>
+                <button class="nav-btn" data-page="windows">
+                    <div class="btn-glow"></div>
+                    <i class="fab fa-windows"></i>
+                    <span>Windows</span>
+                    <div class="btn-ripple"></div>
+                </button>
+                <button class="nav-btn" data-page="fortnite">
+                    <div class="btn-glow"></div>
+                    <i class="fas fa-crosshairs"></i>
+                    <span>Fortnite</span>
+                    <div class="btn-ripple"></div>
+                </button>
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/173WFJqzvJ/" class="social-icon" target="_blank" >
+                        <i class="fab fa-facebook"></i>
+                        <div class="social-glow"></div>
+                    </a>
+                    <a href="https://discord.gg/UqPnNEQzwb" class="social-icon" target="_blank" >
+                        <i class="fab fa-discord"></i>
+                        <div class="social-glow"></div>
+                    </a>
+                    <a href="https://www.tiktok.com/@nxtweaker?_t=ZS-8z63i10s0QC&_r=1" class="social-icon" target="_blank" >
+                        <i class="fab fa-tiktok"></i>
+                        <div class="social-glow"></div>
+                    </a>
+                </div>
+                <div class="version">v4.0</div>
+            </div>
+        </nav>
+
+
+        <main class="main-content">
+            <div class="page active" id="dashboard">
+                <div class="hero-welcome">
+                    <div class="hero-content">
+                        <div class="hero-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h1 class="hero-title">WELCOME TO NX TWEAKER</h1>
+                        <p class="hero-subtitle">The Ultimate System Optimization Suite</p>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">4.0</div>
+                                <div class="stat-label">Version</div>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item">
+                                <div class="stat-number">35</div>
+                                <div class="stat-label">Tools</div>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item">
+                                <div class="stat-number">300+</div>
+                                <div class="stat-label">Max FPS</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-features">
+                        <div class="feature-card">
+                            <div class="feature-icon boost">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <h3>Performance Boost</h3>
+                            <p>Optimize your system for maximum speed and efficiency</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon secure">
+                                <i class="fas fa-shield-virus"></i>
+                            </div>
+                            <h3>Safe & Secure</h3>
+                            <p>All tweaks are tested and reversible for your safety</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon gaming">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h3>Gaming Ready</h3>
+                            <p>Specialized optimizations for gaming performance</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="tips-section">
+                    <div class="section-header">
+                        <div class="section-title-container">
+                            <div class="section-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h2 class="section-title">TIPS & TRICKS</h2>
+                        </div>
+                        <div class="section-subtitle">Master your system optimization</div>
+                    </div>
+                    
+                    <div class="tips-grid">
+                        <div class="tip-card performance">
+                            <div class="tip-header">
+                                <div class="tip-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="tip-badge">Performance</div>
+                            </div>
+                            <div class="tip-body">
+                                <h4>System Cleaning</h4>
+                                <p>Regular cleaning keeps your system running smoothly. Use <strong>Full Clean</strong> weekly for best results.</p>
+                                <div class="tip-action">
+                                    <span>Go to Clean →</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tip-card gaming">
+                            <div class="tip-header">
+                                <div class="tip-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="tip-badge">Gaming</div>
+                            </div>
+                            <div class="tip-body">
+                                <h4>FPS Boost</h4>
+                                <p>Start with <strong>Super Smooth 120 FPS</strong> mod in GameLoop for optimal gaming experience.</p>
+                                <div class="tip-action">
+                                    <span>Go to GameLoop →</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tip-card system">
+                            <div class="tip-header">
+                                <div class="tip-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <div class="tip-badge">System</div>
+                            </div>
+                            <div class="tip-body">
+                                <h4>CPU Optimization</h4>
+                                <p>Apply <strong>Park Control</strong> first, then use <strong>Timer Resolution</strong> for maximum CPU performance.</p>
+                                <div class="tip-action">
+                                    <span>Go to Tweeks →</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tip-card security">
+                            <div class="tip-header">
+                                <div class="tip-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="tip-badge">Security</div>
+                            </div>
+                            <div class="tip-body">
+                                <h4>Safety First</h4>
+                                <p>Always create a <strong>System Restore Point</strong> before applying major system tweaks.</p>
+                                <div class="tip-action">
+                                    <span>Stay Safe →</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="updates-section">
+                    <div class="section-header">
+                        <div class="section-title-container">
+                            <div class="section-icon">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                            <h2 class="section-title">UPDATES & NEWS</h2>
+                        </div>
+                        <div class="section-subtitle">Stay up to date with the latest features</div>
+                    </div>
+                    
+                    <div class="updates-timeline">
+                        <div class="update-item featured">
+                            <div class="update-marker">
+                                <div class="update-dot"></div>
+                                <div class="update-line"></div>
+                            </div>
+                            <div class="update-card">
+                                <div class="update-header">
+                                    <div class="update-meta">
+                                        <span class="update-version">v4.0</span>
+                                        <span class="update-badge new">Latest</span>
+                                    </div>
+                                    <div class="update-date">
+                                        <i class="fas fa-clock"></i>
+                                        <span>September 2024</span>
+                                    </div>
+                                </div>
+                                <div class="update-content">
+                                    <h3>🚀 Completely redesign the program</h3>
+                                    <p>Complete UI overhaul with enhanced user experience and new optimization features.</p>
+                                    <div class="update-highlights">
+                                        <div class="highlight-item">
+                                            <i class="fas fa-sparkles"></i>
+                                            <span>Full interface enhancer</span>
+                                        </div>
+                                        <div class="highlight-item">
+                                            <i class="fas fa-crosshairs"></i>
+                                            <span>Dedicated Fortnite Optimizer</span>
+                                        </div>
+                                        <div class="highlight-item">
+                                            <i class="fas fa-tachometer-alt"></i>
+                                            <span>120 FPS GameLoop Mods</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="update-item">
+                            <div class="update-marker">
+                                <div class="update-dot"></div>
+                                <div class="update-line"></div>
+                            </div>
+                            <div class="update-card">
+                                <div class="update-header">
+                                    <div class="update-meta">
+                                        <span class="update-version">v3.8</span>
+                                    </div>
+                                    <div class="update-date">
+                                        <i class="fas fa-clock"></i>
+                                        <span>August 2024</span>
+                                    </div>
+                                </div>
+                                <div class="update-content">
+                                    <h3>⚡ Performance Enhancements</h3>
+                                    <p>Improved cleaning algorithms and new system optimization tools.</p>
+                                    <div class="update-features">
+                                        <span class="feature-tag">Timer Resolution</span>
+                                        <span class="feature-tag">Enhanced RAM Cleaning</span>
+                                        <span class="feature-tag">Update Blocker</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="update-item">
+                            <div class="update-marker">
+                                <div class="update-dot"></div>
+                            </div>
+                            <div class="update-card">
+                                <div class="update-header">
+                                    <div class="update-meta">
+                                        <span class="update-version">v3.5</span>
+                                    </div>
+                                    <div class="update-date">
+                                        <i class="fas fa-clock"></i>
+                                        <span>July 2024</span>
+                                    </div>
+                                </div>
+                                <div class="update-content">
+                                    <h3>🛠️ New Tools Added Fix Login</h3>
+                                    <p>GameLoop environment fixes and expanded Windows utilities Fix Login.</p>
+                                    <div class="update-features">
+                                        <span class="feature-tag">Environment Fix</span>
+                                        <span class="feature-tag">Windows Tools</span>
+                                        <span class="feature-tag">Fix Login Error</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="page" id="clean">
+                <h1 class="page-title">SYSTEM CLEANER</h1>
+
+                <div class="clean-grid">
+                    <button class="clean-btn" data-action="full-clean">
+                        <div class="clean-btn-glow"></div>
+                        <i class="fas fa-magic"></i>
+                        <span class="clean-btn-text">Full Clean</span>
+                        <div class="clean-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="clean-btn" data-action="clean-ram">
+                        <div class="clean-btn-glow"></div>
+                        <i class="fas fa-memory"></i>
+                        <span class="clean-btn-text">Clean RAM</span>
+                        <div class="clean-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="clean-btn" data-action="ip-flush">
+                        <div class="clean-btn-glow"></div>
+                        <i class="fas fa-network-wired"></i>
+                        <span class="clean-btn-text">IP Flush</span>
+                        <div class="clean-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="clean-btn" data-action="reset-firewall">
+                        <div class="clean-btn-glow"></div>
+                        <i class="fas fa-shield-alt"></i>
+                        <span class="clean-btn-text">Reset Firewall</span>
+                        <div class="clean-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="clean-btn" data-action="clear-temp">
+                        <div class="clean-btn-glow"></div>
+                        <i class="fas fa-trash"></i>
+                        <span class="clean-btn-text">Clear Temp</span>
+                        <div class="clean-btn-ripple"></div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="page" id="gameloop">
+                <h1 class="page-title">GAMELOOP OPTIMIZER</h1>
+                <!-- Added GameLoop action buttons -->
+                <div class="gameloop-grid">
+                    <button class="gameloop-btn" data-action="kill-emulator">
+                        <div class="gameloop-btn-glow"></div>
+                        <i class="fas fa-power-off"></i>
+                        <span class="gameloop-btn-text">Kill Emulator</span>
+                        <div class="gameloop-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="gameloop-btn" data-action="fix-98">
+                        <div class="gameloop-btn-glow"></div>
+                        <i class="fas fa-tools"></i>
+                        <span class="gameloop-btn-text">Fix 98</span>
+                        <div class="gameloop-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="gameloop-btn" data-action="environment-fix">
+                        <div class="gameloop-btn-glow"></div>
+                        <i class="fas fa-bug"></i>
+                        <span class="gameloop-btn-text">Environment ex fix</span>
+                        <div class="gameloop-btn-ripple"></div>
+                    </button>
+                </div>
+
+                <!-- Added Mods section with FPS optimization buttons -->
+                <div class="mods-section">
+                    <h2 class="section-title">MODS</h2>
+                    <div class="mods-grid">
+                        <button class="mod-btn" data-mod="super-smooth">
+                            <div class="mod-btn-glow"></div>
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span class="mod-btn-text">Super Smooth 120 FPS</span>
+                            <div class="mod-btn-ripple"></div>
+                        </button>
+                        
+                        <button class="mod-btn" data-mod="ultra-hd">
+                            <div class="mod-btn-glow"></div>
+                            <i class="fas fa-tv"></i>
+                            <span class="mod-btn-text">Ultra HD 120 FPS</span>
+                            <div class="mod-btn-ripple"></div>
+                        </button>
+                        
+                        <button class="mod-btn" data-mod="hdr">
+                            <div class="mod-btn-glow"></div>
+                            <i class="fas fa-sun"></i>
+                            <span class="mod-btn-text">HDR 120 FPS</span>
+                            <div class="mod-btn-ripple"></div>
+                        </button>
+                        
+                        <button class="mod-btn" data-mod="smooth">
+                            <div class="mod-btn-glow"></div>
+                            <i class="fas fa-chart-line"></i>
+                            <span class="mod-btn-text">Smooth 120 FPS</span>
+                            <div class="mod-btn-ripple"></div>
+                        </button>
+                        
+                        <button class="mod-btn" data-mod="t-box-speed">
+                            <div class="mod-btn-glow"></div>
+                            <i class="fas fa-rocket"></i>
+                            <span class="mod-btn-text">T Box Speed</span>
+                            <div class="mod-btn-ripple"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="tweeks">
+                <h1 class="page-title">SYSTEM TWEAKS</h1>
+                <!-- Added tweaks action buttons grid -->
+                <div class="tweeks-grid">
+                    <button class="tweeks-btn" data-action="park-control">
+                        <div class="tweeks-btn-glow"></div>
+                        <i class="fas fa-parking"></i>
+                        <span class="tweeks-btn-text">Park Control</span>
+                        <div class="tweeks-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="tweeks-btn" data-action="timer-resolution">
+                        <div class="tweeks-btn-glow"></div>
+                        <i class="fas fa-clock"></i>
+                        <span class="tweeks-btn-text">Timer Resolution</span>
+                        <div class="tweeks-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="tweeks-btn" data-action="cru">
+                        <div class="tweeks-btn-glow"></div>
+                        <i class="fas fa-microchip"></i>
+                        <span class="tweeks-btn-text">CRU</span>
+                        <div class="tweeks-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="tweeks-btn" data-action="filterkeys">
+                        <div class="tweeks-btn-glow"></div>
+                        <i class="fas fa-filter"></i>
+                        <span class="tweeks-btn-text">Filterkeys</span>
+                        <div class="tweeks-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="tweeks-btn" data-action="optimized-tweak">
+                        <div class="tweeks-btn-glow"></div>
+                        <i class="fas fa-rocket"></i>
+                        <span class="tweeks-btn-text">Optimized Tweak</span>
+                        <div class="tweeks-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="tweeks-btn" data-action="debloat">
+                        <div class="tweeks-btn-glow"></div>
+                        <i class="fas fa-broom"></i>
+                        <span class="tweeks-btn-text">Debloat</span>
+                        <div class="tweeks-btn-ripple"></div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="page" id="settings">
+                <h1 class="page-title">SETTINGS</h1>
+                <!-- Added settings action buttons grid -->
+                <div class="settings-grid">
+                    <button class="settings-btn" data-action="control-panel">
+                        <div class="settings-btn-glow"></div>
+                        <i class="fas fa-sliders-h"></i>
+                        <span class="settings-btn-text">Control Panel</span>
+                        <div class="settings-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="settings-btn" data-action="visual-effects">
+                        <div class="settings-btn-glow"></div>
+                        <i class="fas fa-eye"></i>
+                        <span class="settings-btn-text">Visual Effects</span>
+                        <div class="settings-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="settings-btn" data-action="msconfig">
+                        <div class="settings-btn-glow"></div>
+                        <i class="fas fa-cogs"></i>
+                        <span class="settings-btn-text">Msconfig</span>
+                        <div class="settings-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="settings-btn" data-action="windows-update-blocker">
+                        <div class="settings-btn-glow"></div>
+                        <i class="fas fa-shield-alt"></i>
+                        <span class="settings-btn-text">Windows Update Blocker</span>
+                        <div class="settings-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="settings-btn" data-action="defender-control">
+                        <div class="settings-btn-glow"></div>
+                        <i class="fas fa-user-shield"></i>
+                        <span class="settings-btn-text">Defender Control</span>
+                        <div class="settings-btn-ripple"></div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="page" id="windows">
+                <h1 class="page-title">WINDOWS TOOLS</h1>
+                <!-- Added Windows action buttons grid -->
+                <div class="windows-grid">
+                    <button class="windows-btn" data-action="nx-script">
+                        <div class="windows-btn-glow"></div>
+                        <i class="fas fa-code"></i>
+                        <span class="windows-btn-text">Nx Script</span>
+                        <div class="windows-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="windows-btn" data-action="basic">
+                        <div class="windows-btn-glow"></div>
+                        <i class="fas fa-layer-group"></i>
+                        <span class="windows-btn-text">Basic</span>
+                        <div class="windows-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="windows-btn" data-action="advanced">
+                        <div class="windows-btn-glow"></div>
+                        <i class="fas fa-cogs"></i>
+                        <span class="windows-btn-text">Advanced</span>
+                        <div class="windows-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="windows-btn" data-action="ultimate">
+                        <div class="windows-btn-glow"></div>
+                        <i class="fas fa-crown"></i>
+                        <span class="windows-btn-text">Ultimate</span>
+                        <div class="windows-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="windows-btn" data-action="windows-10-activation">
+                        <div class="windows-btn-glow"></div>
+                        <i class="fas fa-key"></i>
+                        <span class="windows-btn-text">Windows 10 Activation</span>
+                        <div class="windows-btn-ripple"></div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="page" id="fortnite">
+                <h1 class="page-title">FORTNITE OPTIMIZER</h1>
+                <!-- Added Fortnite action buttons grid -->
+                <div class="fortnite-grid">
+                    <button class="fortnite-btn" data-action="basicF">
+                        <div class="fortnite-btn-glow"></div>
+                        <i class="fas fa-layer-group"></i>
+                        <span class="fortnite-btn-text">Basic</span>
+                        <div class="fortnite-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="fortnite-btn" data-action="advancedF">
+                        <div class="fortnite-btn-glow"></div>
+                        <i class="fas fa-cogs"></i>
+                        <span class="fortnite-btn-text">Advanced</span>
+                        <div class="fortnite-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="fortnite-btn" data-action="ultimateF">
+                        <div class="fortnite-btn-glow"></div>
+                        <i class="fas fa-crown"></i>
+                        <span class="fortnite-btn-text">Ultimate</span>
+                        <div class="fortnite-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="fortnite-btn" data-action="commend">
+                        <div class="fortnite-btn-glow"></div>
+                        <i class="fas fa-thumbs-up"></i>
+                        <span class="fortnite-btn-text">Commend</span>
+                        <div class="fortnite-btn-ripple"></div>
+                    </button>
+                    
+                    <button class="fortnite-btn" data-action="cleanF">
+                        <div class="fortnite-btn-glow"></div>
+                        <i class="fas fa-broom"></i>
+                        <span class="fortnite-btn-text">Clean</span>
+                        <div class="fortnite-btn-ripple"></div>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+<script>
+function showNotification(message, type = 'success', title = null) {
+    let container = document.getElementById("notification-container");
+    if (!container) {
+        container = document.createElement("div");
+        container.id = "notification-container";
+        document.body.appendChild(container);
+    }
+
+    const notification = document.createElement("div");
+    notification.classList.add("notification", type);
+
+    const notificationTitle = title || getTitle(type);
+
+    notification.innerHTML = `
+        <div class="notification-icon">${getIcon(type)}</div>
+        <div class="notification-content">
+            <h4 class="notification-title">${notificationTitle}</h4>
+            <p class="notification-text">${message}</p>
+        </div>
+        <button class="notification-close">×</button>
+    `;
+
+    container.appendChild(notification);
+
+    const removeNotification = () => {
+        if (notification.parentNode) {
+            notification.style.animation = 'fadeOutSlide 0.6s ease-in-out forwards';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 600);
+        }
+    };
+
+    const autoRemoveTimer = setTimeout(removeNotification, 4500);
+
+    const closeBtn = notification.querySelector(".notification-close");
+    closeBtn.addEventListener("click", () => {
+        clearTimeout(autoRemoveTimer);
+        removeNotification();
+    });
+
+    notification.addEventListener("mouseenter", () => {
+        clearTimeout(autoRemoveTimer);
+        notification.style.animationPlayState = 'paused';
+    });
+
+    notification.addEventListener("mouseleave", () => {
+        notification.style.animationPlayState = 'running';
+        setTimeout(removeNotification, 2000);
+    });
+
+    return notification;
+}
+
+function getIcon(type) {
+    const icons = {
+        'success': '✓',
+        'error': '⚠',
+        'warning': '⚡',
+        'info': 'ℹ',
+        'loading': '⟳',
+        'default': '🔔'
+    };
+    return icons[type] || icons['default'];
+}
+
+function getTitle(type) {
+    const titles = {
+        'success': 'Success!',
+        'error': 'Error',
+        'warning': 'Warning',
+        'info': 'Information',
+        'loading': 'Loading...',
+        'default': 'Notification'
+    };
+    return titles[type] || titles['default'];
+}
+
+const notify = {
+    success: (message, title) => showNotification(message, 'success', title),
+    error: (message, title) => showNotification(message, 'error', title),
+    warning: (message, title) => showNotification(message, 'warning', title),
+    info: (message, title) => showNotification(message, 'info', title),
+    loading: (message, title) => showNotification(message, 'loading', title)
+};
+
+function getNotificationTypeForAction(action) {
+    const actionTypes = {
+        'save': 'success',
+        'update': 'success',
+        'create': 'success',
+        'install': 'success',
+        'download': 'success',
+        'upload': 'success',
+        'backup': 'success',
+        'restore': 'success',
+        'enable': 'success',
+        'activate': 'success',
+
+        'delete': 'warning',
+        'remove': 'warning',
+        'disable': 'warning',
+        'reset': 'warning',
+        'clear': 'warning',
+        'logout': 'warning',
+
+        'view': 'info',
+        'check': 'info',
+        'scan': 'info',
+        'search': 'info',
+        'filter': 'info',
+        'refresh': 'info',
+
+        'loading': 'loading',
+        'processing': 'loading',
+        'syncing': 'loading'
+    };
+
+    for (const [key, type] of Object.entries(actionTypes)) {
+        if (action.toLowerCase().includes(key)) {
+            return type;
+        }
+    }
+
+    return 'info';
+}
+
+function getCustomMessage(action, type) {
+    const messages = {
+        'success': {
+            'save': 'Data saved successfully',
+            'update': 'Data updated successfully',
+            'create': 'Item created successfully',
+            'install': 'Installed successfully',
+            'download': 'Downloaded successfully',
+            'upload': 'Uploaded successfully',
+            'backup': 'Backup created successfully',
+            'restore': 'Data restored successfully',
+            'enable': 'Service enabled',
+            'activate': 'Feature activated'
+        },
+        'warning': {
+            'delete': 'Item deleted',
+            'remove': 'Item removed',
+            'disable': 'Service disabled',
+            'reset': 'Settings reset',
+            'clear': 'Data cleared',
+            'logout': 'Logged out'
+        },
+        'info': {
+            'view': 'Viewing data',
+            'check': 'System check in progress',
+            'scan': 'Scanning...',
+            'search': 'Searching...',
+            'filter': 'Filter applied',
+            'refresh': 'Page refreshed'
+        },
+        'loading': {
+            'loading': 'Loading, please wait...',
+            'processing': 'Processing...',
+            'syncing': 'Syncing...'
+        }
+    };
+
+    if (messages[type]) {
+        for (const [key, message] of Object.entries(messages[type])) {
+            if (action.toLowerCase().includes(key)) {
+                return message;
+            }
+        }
+    }
+
+    return `Executing "${action}"...`;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    function attachNotificationEvents() {
+        document.querySelectorAll("button[data-action], button[data-mod]").forEach(btn => {
+            if (btn.hasAttribute('data-notification-attached')) return;
+            btn.setAttribute('data-notification-attached', 'true');
+
+            btn.addEventListener("click", function(e) {
+                const action = this.getAttribute("data-action") || this.getAttribute("data-mod");
+                const customMessage = this.getAttribute("data-message");
+                const customType = this.getAttribute("data-notification-type");
+                const customTitle = this.getAttribute("data-notification-title");
+
+                if (action) {
+                    const notificationType = customType || getNotificationTypeForAction(action);
+                    const message = customMessage || getCustomMessage(action, notificationType);
+                    showNotification(message, notificationType, customTitle);
+
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                }
+            });
+        });
+    }
+
+    attachNotificationEvents();
+
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList') {
+                attachNotificationEvents();
+            }
+        });
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+});
+
+window.showSuccess = (message, title) => notify.success(message, title);
+window.showError = (message, title) => notify.error(message, title);
+window.showWarning = (message, title) => notify.warning(message, title);
+window.showInfo = (message, title) => notify.info(message, title);
+window.showLoading = (message, title) => notify.loading(message, title);
+
+// مثال على الاستخدام المتقدم
+/*
+// استخدام بسيط
+showNotification('تم الحفظ بنجاح', 'success');
+
+// استخدام متقدم
+showNotification('تم تحديث البيانات', 'success', 'عملية ناجحة');
+
+// استخدام الدوال المساعدة
+notify.success('تم الحفظ بنجاح');
+notify.error('فشل في الاتصال بالخادم');
+notify.warning('يرجى التحقق من البيانات');
+notify.info('معلومة مهمة');
+notify.loading('جاري التحميل...');
+*/
+
+
+</Script>
+</body>
+</html>
