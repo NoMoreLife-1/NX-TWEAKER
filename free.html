@@ -375,6 +375,39 @@
             margin-top: 14px;
             margin-bottom: 18px;
         }
+        .mods-groups {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            width: 100%;
+            margin-top: 8px;
+            margin-bottom: 22px;
+        }
+        .mods-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .mods-group.hdr-group {
+            position: relative;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            border-radius: 16px;
+            padding: 10px 12px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+        }
+        .mods-group.hdr-group::before,
+        .mods-group.hdr-group::after {
+            content: "";
+            position: absolute;
+            top: 12px;
+            bottom: 12px;
+            width: 2px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(96, 165, 250, 0.5), rgba(167, 139, 250, 0.25));
+        }
+        .mods-group.hdr-group::before { left: 8px; }
+        .mods-group.hdr-group::after { right: 8px; }
         .dashboard-note {
             margin-top: 18px;
             margin-bottom: 8px;
@@ -619,29 +652,76 @@
     <div id="dashboard">
         <h2 class="dashboard-title">NX TWEAKER</h2>
         <div class="section-title section-title-lg">Graphics</div>
-        <div class="mods-container">
-            <button class="mod-btn" data-code="NX_ULTRA_120" data-command="ULTRA_120" onclick="activateMod(this,'ultra')">
-                <svg viewBox="0 0 16 16">
-                    <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
-                    <line x1="8" y1="8" x2="12" y2="6" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-                <span>Ultra Smooth 120FPS</span>
-            </button>
-            <button class="mod-btn" data-code="NX_SMOOTH_120" data-command="SMOOTH_120" onclick="activateMod(this,'other')">
-                <svg viewBox="0 0 16 16">
-                    <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
-                    <line x1="8" y1="8" x2="11" y2="9" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-                <span>Smooth 120FPS</span>
-            </button>
-            <button class="mod-btn" data-code="NX_HDR_60" data-command="HDR_60" onclick="activateMod(this,'hdr60')">
-                <svg viewBox="0 0 16 16"><polygon points="8,2 9.8,6.2 14,6.5 10.7,9.1 11.8,13 8,10.8 4.2,13 5.3,9.1 2,6.5 6.2,6.2"/></svg>
-                <span>HDR 60FPS</span>
-            </button>
-            <button class="mod-btn" data-code="NX_HDR_120" data-command="HDR_120" onclick="activateMod(this,'hdr')">
-                <svg viewBox="0 0 16 16"><polygon points="8,2 9.8,6.2 14,6.5 10.7,9.1 11.8,13 8,10.8 4.2,13 5.3,9.1 2,6.5 6.2,6.2"/></svg>
-                <span>Ultra HDR 120FPS</span>
-            </button>
+        <div class="mods-groups">
+            <div class="mods-group">
+                <div class="section-title">Smooth</div>
+                <div class="mods-container">
+                    <button class="mod-btn" data-code="NX_ULTRA_120" data-command="ULTRA_120" onclick="activateMod(this,'ultra')">
+                        <svg viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+                            <line x1="8" y1="8" x2="12" y2="6" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Super Smooth 120FPS</span>
+                    </button>
+                    <button class="mod-btn" data-code="NX_SMOOTH_120" data-command="SMOOTH_120" onclick="activateMod(this,'other')">
+                        <svg viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+                            <line x1="8" y1="8" x2="11" y2="9" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Smooth 120FPS</span>
+                    </button>
+                    <button class="mod-btn" data-code="NX_BALANCED_120" data-command="BALANCED_120" onclick="activateMod(this,'balanced120')">
+                        <svg viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+                            <line x1="8" y1="8" x2="10" y2="10" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Balanced 120FPS</span>
+                    </button>
+                </div>
+            </div>
+            <div class="mods-group">
+                <div class="section-title">HDR</div>
+                <div class="mods-container">
+                    <button class="mod-btn" data-code="NX_HDR_60" data-command="HDR_60" onclick="activateMod(this,'hdr60')">
+                        <svg viewBox="0 0 16 16"><polygon points="8,2 9.8,6.2 14,6.5 10.7,9.1 11.8,13 8,10.8 4.2,13 5.3,9.1 2,6.5 6.2,6.2"/></svg>
+                        <span>HDR 60FPS</span>
+                    </button>
+                    <button class="mod-btn" data-code="NX_HDR_90" data-command="HDR_90" onclick="activateMod(this,'hdr90')">
+                        <svg viewBox="0 0 16 16"><polygon points="8,2 9.8,6.2 14,6.5 10.7,9.1 11.8,13 8,10.8 4.2,13 5.3,9.1 2,6.5 6.2,6.2"/></svg>
+                        <span>HDR 90FPS</span>
+                    </button>
+                    <button class="mod-btn" data-code="NX_HDR_120" data-command="HDR_120" onclick="activateMod(this,'hdr120')">
+                        <svg viewBox="0 0 16 16"><polygon points="8,2 9.8,6.2 14,6.5 10.7,9.1 11.8,13 8,10.8 4.2,13 5.3,9.1 2,6.5 6.2,6.2"/></svg>
+                        <span>HDR 120FPS</span>
+                    </button>
+                </div>
+            </div>
+            <div class="mods-group">
+                <div class="section-title">Ultra HDR</div>
+                <div class="mods-container">
+                    <button class="mod-btn" data-code="NX_ULTRAHDR_60" data-command="ULTRAHDR_60" onclick="activateMod(this,'ultrahdr60')">
+                        <svg viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+                            <line x1="8" y1="8" x2="12" y2="6" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Ultra HDR 60FPS</span>
+                    </button>
+                    <button class="mod-btn" data-code="NX_ULTRAHDR_90" data-command="ULTRAHDR_90" onclick="activateMod(this,'ultrahdr90')">
+                        <svg viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+                            <line x1="8" y1="8" x2="12" y2="6" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Ultra HDR 90FPS</span>
+                    </button>
+                    <button class="mod-btn" data-code="NX_ULTRAHDR_120" data-command="ULTRAHDR_120" onclick="activateMod(this,'ultrahdr120')">
+                        <svg viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+                            <line x1="8" y1="8" x2="12" y2="6" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Ultra HDR 120FPS</span>
+                    </button>
+                </div>
+            </div>
         </div>
         <div class="section-title section-title-lg">Emulator</div>
         <div class="controls-container">
@@ -833,15 +913,43 @@
 
         function activateMod(el, mod) {
             const messages = {
-                hdr: 'Applying HDR 120FPS preset...',
+                hdr: 'Applying Ultra HDR 120FPS preset...',
+                hdr120: 'Applying HDR 120FPS preset...',
                 hdr60: 'Applying HDR 60FPS preset...',
-                ultra: 'Applying Ultra Smooth 120FPS preset...',
-                other: 'Applying Smooth 120FPS preset...'
+                hdr90: 'Applying HDR 90FPS preset...',
+                ultra: 'Applying Super Smooth 120FPS preset...',
+                other: 'Applying Smooth 120FPS preset...',
+                balanced120: 'Applying Balanced 120FPS preset...',
+                ultrahdr60: 'Applying Ultra HDR 60FPS preset...',
+                ultrahdr90: 'Applying Ultra HDR 90FPS preset...',
+                ultrahdr120: 'Applying Ultra HDR 120FPS preset...'
             };
             const message = messages[mod] || `Mod "${mod.toUpperCase()}" has been activated.`;
             showNotification(message, 'info');
-            const codeMap = { hdr: 'NX_HDR_120', hdr60: 'NX_HDR_60', ultra: 'NX_ULTRA_120', other: 'NX_SMOOTH_120' };
-            const cmdMap = { hdr: 'HDR_120', hdr60: 'HDR_60', ultra: 'ULTRA_120', other: 'SMOOTH_120' };
+            const codeMap = {
+                hdr: 'NX_HDR_120',
+                hdr120: 'NX_HDR_120',
+                hdr60: 'NX_HDR_60',
+                hdr90: 'NX_HDR_90',
+                ultra: 'NX_ULTRA_120',
+                other: 'NX_SMOOTH_120',
+                balanced120: 'NX_BALANCED_120',
+                ultrahdr60: 'NX_ULTRAHDR_60',
+                ultrahdr90: 'NX_ULTRAHDR_90',
+                ultrahdr120: 'NX_ULTRAHDR_120'
+            };
+            const cmdMap = {
+                hdr: 'HDR_120',
+                hdr120: 'HDR_120',
+                hdr60: 'HDR_60',
+                hdr90: 'HDR_90',
+                ultra: 'ULTRA_120',
+                other: 'SMOOTH_120',
+                balanced120: 'BALANCED_120',
+                ultrahdr60: 'ULTRAHDR_60',
+                ultrahdr90: 'ULTRAHDR_90',
+                ultrahdr120: 'ULTRAHDR_120'
+            };
             const code = el && el.dataset ? el.dataset.code : (codeMap[mod] || 'NX_MOD');
             const command = el && el.dataset ? el.dataset.command : (cmdMap[mod] || 'MOD');
             const args = parseArgs(el && el.dataset ? el.dataset.args : '');
