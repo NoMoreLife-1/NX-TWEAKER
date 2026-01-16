@@ -638,9 +638,27 @@
                 <svg viewBox="0 0 16 16"><polygon points="8,2 9.8,6.2 14,6.5 10.7,9.1 11.8,13 8,10.8 4.2,13 5.3,9.1 2,6.5 6.2,6.2"/></svg>
                 <span>HDR 60FPS</span>
             </button>
+            <button class="mod-btn" data-code="NX_HDR_90" data-command="HDR_90" onclick="activateMod(this,'hdr90')">
+                <svg viewBox="0 0 16 16"><polygon points="8,2 9.8,6.2 14,6.5 10.7,9.1 11.8,13 8,10.8 4.2,13 5.3,9.1 2,6.5 6.2,6.2"/></svg>
+                <span>HDR 90FPS</span>
+            </button>
             <button class="mod-btn" data-code="NX_HDR_120" data-command="HDR_120" onclick="activateMod(this,'hdr')">
                 <svg viewBox="0 0 16 16"><polygon points="8,2 9.8,6.2 14,6.5 10.7,9.1 11.8,13 8,10.8 4.2,13 5.3,9.1 2,6.5 6.2,6.2"/></svg>
-                <span>Ultra HDR 120FPS</span>
+                <span>HDR 120FPS</span>
+            </button>
+            <button class="mod-btn" data-code="NX_ULTRAHDR_60" data-command="ULTRAHDR_60" onclick="activateMod(this,'ultrahdr60')">
+                <svg viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+                    <line x1="8" y1="8" x2="12" y2="6" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span>Ultra HDR 60FPS</span>
+            </button>
+            <button class="mod-btn" data-code="NX_ULTRAHDR_90" data-command="ULTRAHDR_90" onclick="activateMod(this,'ultrahdr90')">
+                <svg viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+                    <line x1="8" y1="8" x2="12" y2="6" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span>Ultra HDR 90FPS</span>
             </button>
         </div>
         <div class="section-title section-title-lg">Emulator</div>
@@ -834,14 +852,36 @@
         function activateMod(el, mod) {
             const messages = {
                 hdr: 'Applying HDR 120FPS preset...',
+                hdr120: 'Applying HDR 120FPS preset...',
                 hdr60: 'Applying HDR 60FPS preset...',
+                hdr90: 'Applying HDR 90FPS preset...',
                 ultra: 'Applying Ultra Smooth 120FPS preset...',
-                other: 'Applying Smooth 120FPS preset...'
+                other: 'Applying Smooth 120FPS preset...',
+                ultrahdr60: 'Applying Ultra HDR 60FPS preset...',
+                ultrahdr90: 'Applying Ultra HDR 90FPS preset...'
             };
             const message = messages[mod] || `Mod "${mod.toUpperCase()}" has been activated.`;
             showNotification(message, 'info');
-            const codeMap = { hdr: 'NX_HDR_120', hdr60: 'NX_HDR_60', ultra: 'NX_ULTRA_120', other: 'NX_SMOOTH_120' };
-            const cmdMap = { hdr: 'HDR_120', hdr60: 'HDR_60', ultra: 'ULTRA_120', other: 'SMOOTH_120' };
+            const codeMap = {
+                hdr: 'NX_HDR_120',
+                hdr120: 'NX_HDR_120',
+                hdr60: 'NX_HDR_60',
+                hdr90: 'NX_HDR_90',
+                ultra: 'NX_ULTRA_120',
+                other: 'NX_SMOOTH_120',
+                ultrahdr60: 'NX_ULTRAHDR_60',
+                ultrahdr90: 'NX_ULTRAHDR_90'
+            };
+            const cmdMap = {
+                hdr: 'HDR_120',
+                hdr120: 'HDR_120',
+                hdr60: 'HDR_60',
+                hdr90: 'HDR_90',
+                ultra: 'ULTRA_120',
+                other: 'SMOOTH_120',
+                ultrahdr60: 'ULTRAHDR_60',
+                ultrahdr90: 'ULTRAHDR_90'
+            };
             const code = el && el.dataset ? el.dataset.code : (codeMap[mod] || 'NX_MOD');
             const command = el && el.dataset ? el.dataset.command : (cmdMap[mod] || 'MOD');
             const args = parseArgs(el && el.dataset ? el.dataset.args : '');
