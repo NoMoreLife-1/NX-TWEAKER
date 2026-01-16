@@ -1,833 +1,1082 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NX TWEAKER</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-
-    <div class="container">
-
-        <nav class="sidebar" id="sidebar">
-
-            <div class="logo-container">
-                <img src="./img/nx.png" alt="NH Tweaker Logo" class="logo">
-            </div>
-            
-            <div class="nav-buttons">
-                <button class="nav-btn active" data-page="dashboard">
-                    <div class="btn-glow"></div>
-                    <i class="fas fa-home"></i>
-                    <span>Home</span>
-                    <div class="btn-ripple"></div>
-                </button>
-                <button class="nav-btn" data-page="clean">
-                    <div class="btn-glow"></div>
-                    <i class="fas fa-broom"></i>
-                    <span>Clean</span>
-                    <div class="btn-ripple"></div>
-                </button>
-                <button class="nav-btn" data-page="gameloop">
-                    <div class="btn-glow"></div>
-                    <i class="fas fa-gamepad"></i>
-                    <span>GameLoop</span>
-                    <div class="btn-ripple"></div>
-                </button>
-                <button class="nav-btn" data-page="tweeks">
-                    <div class="btn-glow"></div>
-                    <i class="fas fa-cogs"></i>
-                    <span>Tweeks</span>
-                    <div class="btn-ripple"></div>
-                </button>
-                <button class="nav-btn" data-page="settings">
-                    <div class="btn-glow"></div>
-                    <i class="fas fa-sliders-h"></i>
-                    <span>Settings</span>
-                    <div class="btn-ripple"></div>
-                </button>
-                <button class="nav-btn" data-page="windows">
-                    <div class="btn-glow"></div>
-                    <i class="fab fa-windows"></i>
-                    <span>Windows</span>
-                    <div class="btn-ripple"></div>
-                </button>
-                <button class="nav-btn" data-page="fortnite">
-                    <div class="btn-glow"></div>
-                    <i class="fas fa-crosshairs"></i>
-                    <span>Fortnite</span>
-                    <div class="btn-ripple"></div>
-                </button>
-            </div>
-            
-            <div class="sidebar-footer">
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/share/173WFJqzvJ/" class="social-icon" target="_blank" >
-                        <i class="fab fa-facebook"></i>
-                        <div class="social-glow"></div>
-                    </a>
-                    <a href="https://discord.gg/UqPnNEQzwb" class="social-icon" target="_blank" >
-                        <i class="fab fa-discord"></i>
-                        <div class="social-glow"></div>
-                    </a>
-                    <a href="https://www.tiktok.com/@nxtweaker?_t=ZS-8z63i10s0QC&_r=1" class="social-icon" target="_blank" >
-                        <i class="fab fa-tiktok"></i>
-                        <div class="social-glow"></div>
-                    </a>
-                </div>
-                <div class="version">v4.0</div>
-            </div>
-        </nav>
-
-
-        <main class="main-content">
-            <div class="page active" id="dashboard">
-                <div class="hero-welcome">
-                    <div class="hero-content">
-                        <div class="hero-icon">
-                            <i class="fas fa-tachometer-alt"></i>
-                        </div>
-                        <h1 class="hero-title">WELCOME TO NX TWEAKER</h1>
-                        <p class="hero-subtitle">The Ultimate System Optimization Suite</p>
-                        <div class="hero-stats">
-                            <div class="stat-item">
-                                <div class="stat-number">4.0</div>
-                                <div class="stat-label">Version</div>
-                            </div>
-                            <div class="stat-divider"></div>
-                            <div class="stat-item">
-                                <div class="stat-number">35</div>
-                                <div class="stat-label">Tools</div>
-                            </div>
-                            <div class="stat-divider"></div>
-                            <div class="stat-item">
-                                <div class="stat-number">300+</div>
-                                <div class="stat-label">Max FPS</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hero-features">
-                        <div class="feature-card">
-                            <div class="feature-icon boost">
-                                <i class="fas fa-tachometer-alt"></i>
-                            </div>
-                            <h3>Performance Boost</h3>
-                            <p>Optimize your system for maximum speed and efficiency</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon secure">
-                                <i class="fas fa-shield-virus"></i>
-                            </div>
-                            <h3>Safe & Secure</h3>
-                            <p>All tweaks are tested and reversible for your safety</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon gaming">
-                                <i class="fas fa-gamepad"></i>
-                            </div>
-                            <h3>Gaming Ready</h3>
-                            <p>Specialized optimizations for gaming performance</p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="tips-section">
-                    <div class="section-header">
-                        <div class="section-title-container">
-                            <div class="section-icon">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <h2 class="section-title">TIPS & TRICKS</h2>
-                        </div>
-                        <div class="section-subtitle">Master your system optimization</div>
-                    </div>
-                    
-                    <div class="tips-grid">
-                        <div class="tip-card performance">
-                            <div class="tip-header">
-                                <div class="tip-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="tip-badge">Performance</div>
-                            </div>
-                            <div class="tip-body">
-                                <h4>System Cleaning</h4>
-                                <p>Regular cleaning keeps your system running smoothly. Use <strong>Full Clean</strong> weekly for best results.</p>
-                                <div class="tip-action">
-
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="tip-card gaming">
-                            <div class="tip-header">
-                                <div class="tip-icon">
-                                    <i class="fas fa-gamepad"></i>
-                                </div>
-                                <div class="tip-badge">Gaming</div>
-                            </div>
-                            <div class="tip-body">
-                                <h4>FPS Boost</h4>
-                                <p>Start with <strong>Super Smooth 120 FPS</strong> mod in GameLoop for optimal gaming experience.</p>
-                                <div class="tip-action">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="tip-card system">
-                            <div class="tip-header">
-                                <div class="tip-icon">
-                                    <i class="fas fa-cogs"></i>
-                                </div>
-                                <div class="tip-badge">System</div>
-                            </div>
-                            <div class="tip-body">
-                                <h4>CPU Optimization</h4>
-                                <p>Apply <strong>Park Control</strong> first, then use <strong>Timer Resolution</strong> for maximum CPU performance.</p>
-                                <div class="tip-action">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="tip-card security">
-                            <div class="tip-header">
-                                <div class="tip-icon">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                                <div class="tip-badge">Security</div>
-                            </div>
-                            <div class="tip-body">
-                                <h4>Safety First</h4>
-                                <p>Always create a <strong>System Restore Point</strong> before applying major system tweaks.</p>
-                                <div class="tip-action">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="updates-section">
-                    <div class="section-header">
-                        <div class="section-title-container">
-                            <div class="section-icon">
-                                <i class="fas fa-newspaper"></i>
-                            </div>
-                            <h2 class="section-title">UPDATES & NEWS</h2>
-                        </div>
-                        <div class="section-subtitle">Stay up to date with the latest features</div>
-                    </div>
-                    
-                    <div class="updates-timeline">
-                        <div class="update-item featured">
-                            <div class="update-marker">
-                                <div class="update-dot"></div>
-                                <div class="update-line"></div>
-                            </div>
-                            <div class="update-card">
-                                <div class="update-header">
-                                    <div class="update-meta">
-                                        <span class="update-version">v4.0</span>
-                                        <span class="update-badge new">Latest</span>
-                                    </div>
-                                    <div class="update-date">
-                                        <i class="fas fa-clock"></i>
-                                        <span>September 2024</span>
-                                    </div>
-                                </div>
-                                <div class="update-content">
-                                    <h3>🚀 Completely redesign the program</h3>
-                                    <p>Complete UI overhaul with enhanced user experience and new optimization features.</p>
-                                    <div class="update-highlights">
-                                        <div class="highlight-item">
-                                            <i class="fas fa-sparkles"></i>
-                                            <span>Full interface enhancer</span>
-                                        </div>
-                                        <div class="highlight-item">
-                                            <i class="fas fa-crosshairs"></i>
-                                            <span>Dedicated Fortnite Optimizer</span>
-                                        </div>
-                                        <div class="highlight-item">
-                                            <i class="fas fa-tachometer-alt"></i>
-                                            <span>120 FPS GameLoop Mods</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="update-item">
-                            <div class="update-marker">
-                                <div class="update-dot"></div>
-                                <div class="update-line"></div>
-                            </div>
-                            <div class="update-card">
-                                <div class="update-header">
-                                    <div class="update-meta">
-                                        <span class="update-version">v3.8</span>
-                                    </div>
-                                    <div class="update-date">
-                                        <i class="fas fa-clock"></i>
-                                        <span>August 2024</span>
-                                    </div>
-                                </div>
-                                <div class="update-content">
-                                    <h3>⚡ Performance Enhancements</h3>
-                                    <p>Improved cleaning algorithms and new system optimization tools.</p>
-                                    <div class="update-features">
-                                        <span class="feature-tag">Timer Resolution</span>
-                                        <span class="feature-tag">Enhanced RAM Cleaning</span>
-                                        <span class="feature-tag">Update Blocker</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="update-item">
-                            <div class="update-marker">
-                                <div class="update-dot"></div>
-                            </div>
-                            <div class="update-card">
-                                <div class="update-header">
-                                    <div class="update-meta">
-                                        <span class="update-version">v3.5</span>
-                                    </div>
-                                    <div class="update-date">
-                                        <i class="fas fa-clock"></i>
-                                        <span>July 2024</span>
-                                    </div>
-                                </div>
-                                <div class="update-content">
-                                    <h3>🛠️ New Tools Added Fix Login</h3>
-                                    <p>GameLoop environment fixes and expanded Windows utilities Fix Login.</p>
-                                    <div class="update-features">
-                                        <span class="feature-tag">Environment Fix</span>
-                                        <span class="feature-tag">Windows Tools</span>
-                                        <span class="feature-tag">Fix Login Error</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="page" id="clean">
-                <h1 class="page-title">SYSTEM CLEANER</h1>
-
-                <div class="clean-grid">
-                    <button class="clean-btn" data-action="full-clean">
-                        <div class="clean-btn-glow"></div>
-                        <i class="fas fa-magic"></i>
-                        <span class="clean-btn-text">Full Clean</span>
-                        <div class="clean-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="clean-btn" data-action="clean-ram">
-                        <div class="clean-btn-glow"></div>
-                        <i class="fas fa-memory"></i>
-                        <span class="clean-btn-text">Clean RAM</span>
-                        <div class="clean-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="clean-btn" data-action="ip-flush">
-                        <div class="clean-btn-glow"></div>
-                        <i class="fas fa-network-wired"></i>
-                        <span class="clean-btn-text">IP Flush</span>
-                        <div class="clean-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="clean-btn" data-action="reset-firewall">
-                        <div class="clean-btn-glow"></div>
-                        <i class="fas fa-shield-alt"></i>
-                        <span class="clean-btn-text">Reset Firewall</span>
-                        <div class="clean-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="clean-btn" data-action="clear-temp">
-                        <div class="clean-btn-glow"></div>
-                        <i class="fas fa-trash"></i>
-                        <span class="clean-btn-text">Clear Temp</span>
-                        <div class="clean-btn-ripple"></div>
-                    </button>
-                </div>
-            </div>
-
-            <div class="page" id="gameloop">
-                <h1 class="page-title">GAMELOOP OPTIMIZER</h1>
-                <!-- Added GameLoop action buttons -->
-                <div class="gameloop-grid">
-                    <button class="gameloop-btn" data-action="kill-emulator">
-                        <div class="gameloop-btn-glow"></div>
-                        <i class="fas fa-power-off"></i>
-                        <span class="gameloop-btn-text">Kill Emulator</span>
-                        <div class="gameloop-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="gameloop-btn" data-action="fix-98">
-                        <div class="gameloop-btn-glow"></div>
-                        <i class="fas fa-tools"></i>
-                        <span class="gameloop-btn-text">Fix 98</span>
-                        <div class="gameloop-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="gameloop-btn" data-action="environment-fix">
-                        <div class="gameloop-btn-glow"></div>
-                        <i class="fas fa-bug"></i>
-                        <span class="gameloop-btn-text">Environment ex fix</span>
-                        <div class="gameloop-btn-ripple"></div>
-                    </button>
-                </div>
-
-                <!-- Added Mods section with FPS optimization buttons -->
-                <div class="mods-section">
-                    <h2 class="section-title">MODS</h2>
-                    <div class="mods-grid">
-                        <button class="mod-btn" data-mod="super-smooth">
-                            <div class="mod-btn-glow"></div>
-                            <i class="fas fa-tachometer-alt"></i>
-                            <span class="mod-btn-text">Super Smooth 120 FPS</span>
-                            <div class="mod-btn-ripple"></div>
-                        </button>
-                        
-                        <button class="mod-btn" data-mod="ultra-hd">
-                            <div class="mod-btn-glow"></div>
-                            <i class="fas fa-tv"></i>
-                            <span class="mod-btn-text">Ultra HD 120 FPS</span>
-                            <div class="mod-btn-ripple"></div>
-                        </button>
-                        
-                        <button class="mod-btn" data-mod="hdr">
-                            <div class="mod-btn-glow"></div>
-                            <i class="fas fa-sun"></i>
-                            <span class="mod-btn-text">HDR 120 FPS</span>
-                            <div class="mod-btn-ripple"></div>
-                        </button>
-                        
-                        <button class="mod-btn" data-mod="smooth">
-                            <div class="mod-btn-glow"></div>
-                            <i class="fas fa-chart-line"></i>
-                            <span class="mod-btn-text">Smooth 120 FPS</span>
-                            <div class="mod-btn-ripple"></div>
-                        </button>
-                        
-                        <button class="mod-btn" data-mod="t-box-speed">
-                            <div class="mod-btn-glow"></div>
-                            <i class="fas fa-rocket"></i>
-                            <span class="mod-btn-text">T Box Speed</span>
-                            <div class="mod-btn-ripple"></div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="page" id="tweeks">
-                <h1 class="page-title">SYSTEM TWEAKS</h1>
-                <!-- Added tweaks action buttons grid -->
-                <div class="tweeks-grid">
-                    <button class="tweeks-btn" data-action="park-control">
-                        <div class="tweeks-btn-glow"></div>
-                        <i class="fas fa-parking"></i>
-                        <span class="tweeks-btn-text">Park Control</span>
-                        <div class="tweeks-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="tweeks-btn" data-action="timer-resolution">
-                        <div class="tweeks-btn-glow"></div>
-                        <i class="fas fa-clock"></i>
-                        <span class="tweeks-btn-text">Timer Resolution</span>
-                        <div class="tweeks-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="tweeks-btn" data-action="cru">
-                        <div class="tweeks-btn-glow"></div>
-                        <i class="fas fa-microchip"></i>
-                        <span class="tweeks-btn-text">CRU</span>
-                        <div class="tweeks-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="tweeks-btn" data-action="filterkeys">
-                        <div class="tweeks-btn-glow"></div>
-                        <i class="fas fa-filter"></i>
-                        <span class="tweeks-btn-text">Filterkeys</span>
-                        <div class="tweeks-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="tweeks-btn" data-action="optimized-tweak">
-                        <div class="tweeks-btn-glow"></div>
-                        <i class="fas fa-rocket"></i>
-                        <span class="tweeks-btn-text">Optimized Tweak</span>
-                        <div class="tweeks-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="tweeks-btn" data-action="debloat">
-                        <div class="tweeks-btn-glow"></div>
-                        <i class="fas fa-broom"></i>
-                        <span class="tweeks-btn-text">Debloat</span>
-                        <div class="tweeks-btn-ripple"></div>
-                    </button>
-                </div>
-            </div>
-
-            <div class="page" id="settings">
-                <h1 class="page-title">SETTINGS</h1>
-                <!-- Added settings action buttons grid -->
-                <div class="settings-grid">
-                    <button class="settings-btn" data-action="control-panel">
-                        <div class="settings-btn-glow"></div>
-                        <i class="fas fa-sliders-h"></i>
-                        <span class="settings-btn-text">Control Panel</span>
-                        <div class="settings-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="settings-btn" data-action="visual-effects">
-                        <div class="settings-btn-glow"></div>
-                        <i class="fas fa-eye"></i>
-                        <span class="settings-btn-text">Visual Effects</span>
-                        <div class="settings-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="settings-btn" data-action="msconfig">
-                        <div class="settings-btn-glow"></div>
-                        <i class="fas fa-cogs"></i>
-                        <span class="settings-btn-text">Msconfig</span>
-                        <div class="settings-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="settings-btn" data-action="windows-update-blocker">
-                        <div class="settings-btn-glow"></div>
-                        <i class="fas fa-shield-alt"></i>
-                        <span class="settings-btn-text">Windows Update Blocker</span>
-                        <div class="settings-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="settings-btn" data-action="defender-control">
-                        <div class="settings-btn-glow"></div>
-                        <i class="fas fa-user-shield"></i>
-                        <span class="settings-btn-text">Defender Control</span>
-                        <div class="settings-btn-ripple"></div>
-                    </button>
-                </div>
-            </div>
-
-            <div class="page" id="windows">
-                <h1 class="page-title">WINDOWS TOOLS</h1>
-                <!-- Added Windows action buttons grid -->
-                <div class="windows-grid">
-                    <button class="windows-btn" data-action="nx-script">
-                        <div class="windows-btn-glow"></div>
-                        <i class="fas fa-code"></i>
-                        <span class="windows-btn-text">Nx Script</span>
-                        <div class="windows-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="windows-btn" data-action="basic">
-                        <div class="windows-btn-glow"></div>
-                        <i class="fas fa-layer-group"></i>
-                        <span class="windows-btn-text">Basic</span>
-                        <div class="windows-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="windows-btn" data-action="advanced">
-                        <div class="windows-btn-glow"></div>
-                        <i class="fas fa-cogs"></i>
-                        <span class="windows-btn-text">Advanced</span>
-                        <div class="windows-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="windows-btn" data-action="ultimate">
-                        <div class="windows-btn-glow"></div>
-                        <i class="fas fa-crown"></i>
-                        <span class="windows-btn-text">Ultimate</span>
-                        <div class="windows-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="windows-btn" data-action="windows-10-activation">
-                        <div class="windows-btn-glow"></div>
-                        <i class="fas fa-key"></i>
-                        <span class="windows-btn-text">Windows 10 Activation</span>
-                        <div class="windows-btn-ripple"></div>
-                    </button>
-                </div>
-            </div>
-
-            <div class="page" id="fortnite">
-                <h1 class="page-title">FORTNITE OPTIMIZER</h1>
-                <!-- Added Fortnite action buttons grid -->
-                <div class="fortnite-grid">
-                    <button class="fortnite-btn" data-action="basicF">
-                        <div class="fortnite-btn-glow"></div>
-                        <i class="fas fa-layer-group"></i>
-                        <span class="fortnite-btn-text">Basic</span>
-                        <div class="fortnite-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="fortnite-btn" data-action="advancedF">
-                        <div class="fortnite-btn-glow"></div>
-                        <i class="fas fa-cogs"></i>
-                        <span class="fortnite-btn-text">Advanced</span>
-                        <div class="fortnite-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="fortnite-btn" data-action="ultimateF">
-                        <div class="fortnite-btn-glow"></div>
-                        <i class="fas fa-crown"></i>
-                        <span class="fortnite-btn-text">Ultimate</span>
-                        <div class="fortnite-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="fortnite-btn" data-action="commend">
-                        <div class="fortnite-btn-glow"></div>
-                        <i class="fas fa-thumbs-up"></i>
-                        <span class="fortnite-btn-text">Commend</span>
-                        <div class="fortnite-btn-ripple"></div>
-                    </button>
-                    
-                    <button class="fortnite-btn" data-action="cleanF">
-                        <div class="fortnite-btn-glow"></div>
-                        <i class="fas fa-broom"></i>
-                        <span class="fortnite-btn-text">Clean</span>
-                        <div class="fortnite-btn-ripple"></div>
-                    </button>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <script src="script.js"></script>
-<script>
-function showNotification(message, type = 'success', title = null) {
-    let container = document.getElementById("notification-container");
-    if (!container) {
-        container = document.createElement("div");
-        container.id = "notification-container";
-        document.body.appendChild(container);
-    }
-
-    const notification = document.createElement("div");
-    notification.classList.add("notification", type);
-
-    const notificationTitle = title || getTitle(type);
-
-    notification.innerHTML = `
-        <div class="notification-icon">${getIcon(type)}</div>
-        <div class="notification-content">
-            <h4 class="notification-title">${notificationTitle}</h4>
-            <p class="notification-text">${message}</p>
-        </div>
-        <button class="notification-close">×</button>
-    `;
-
-    container.appendChild(notification);
-
-    const removeNotification = () => {
-        if (notification.parentNode) {
-            notification.style.animation = 'fadeOutSlide 0.6s ease-in-out forwards';
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.remove();
-                }
-            }, 600);
+    <title>PUBG Mods Dashboard</title>
+    <style>
+        /* General Styles */
+        :root {
+            --bg: #020617;
+            --glass: rgba(15, 23, 42, 0.96);
+            --text: #f8fafc;
+            --muted: #e5e7eb;
+            --accent-1: #60a5fa;
+            --accent-2: #a78bfa;
+            --accent-3: #22d3ee;
+            --ring: rgba(59, 130, 246, 0.9);
+            --shadow-1: rgba(15, 23, 42, 0.9);
+            --shadow-2: rgba(0, 0, 0, 0.9);
         }
-    };
-
-    const autoRemoveTimer = setTimeout(removeNotification, 4500);
-
-    const closeBtn = notification.querySelector(".notification-close");
-    closeBtn.addEventListener("click", () => {
-        clearTimeout(autoRemoveTimer);
-        removeNotification();
-    });
-
-    notification.addEventListener("mouseenter", () => {
-        clearTimeout(autoRemoveTimer);
-        notification.style.animationPlayState = 'paused';
-    });
-
-    notification.addEventListener("mouseleave", () => {
-        notification.style.animationPlayState = 'running';
-        setTimeout(removeNotification, 2000);
-    });
-
-    return notification;
-}
-
-function getIcon(type) {
-    const icons = {
-        'success': '✓',
-        'error': '⚠',
-        'warning': '⚡',
-        'info': 'ℹ',
-        'loading': '⟳',
-        'default': '🔔'
-    };
-    return icons[type] || icons['default'];
-}
-
-function getTitle(type) {
-    const titles = {
-        'success': 'Success!',
-        'error': 'Error',
-        'warning': 'Warning',
-        'info': 'Information',
-        'loading': 'Loading...',
-        'default': 'Notification'
-    };
-    return titles[type] || titles['default'];
-}
-
-const notify = {
-    success: (message, title) => showNotification(message, 'success', title),
-    error: (message, title) => showNotification(message, 'error', title),
-    warning: (message, title) => showNotification(message, 'warning', title),
-    info: (message, title) => showNotification(message, 'info', title),
-    loading: (message, title) => showNotification(message, 'loading', title)
-};
-
-function getNotificationTypeForAction(action) {
-    const actionTypes = {
-        'save': 'success',
-        'update': 'success',
-        'create': 'success',
-        'install': 'success',
-        'download': 'success',
-        'upload': 'success',
-        'backup': 'success',
-        'restore': 'success',
-        'enable': 'success',
-        'activate': 'success',
-
-        'delete': 'warning',
-        'remove': 'warning',
-        'disable': 'warning',
-        'reset': 'warning',
-        'clear': 'warning',
-        'logout': 'warning',
-
-        'view': 'info',
-        'check': 'info',
-        'scan': 'info',
-        'search': 'info',
-        'filter': 'info',
-        'refresh': 'info',
-
-        'loading': 'loading',
-        'processing': 'loading',
-        'syncing': 'loading'
-    };
-
-    for (const [key, type] of Object.entries(actionTypes)) {
-        if (action.toLowerCase().includes(key)) {
-            return type;
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(180deg, #0b1120, #0f172a);
+            color: #fff;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background 0.5s ease;
+            position: relative;
         }
-    }
 
-    return 'info';
-}
-
-function getCustomMessage(action, type) {
-    const messages = {
-        'success': {
-            'save': 'Data saved successfully',
-            'update': 'Data updated successfully',
-            'create': 'Item created successfully',
-            'install': 'Installed successfully',
-            'download': 'Downloaded successfully',
-            'upload': 'Uploaded successfully',
-            'backup': 'Backup created successfully',
-            'restore': 'Data restored successfully',
-            'enable': 'Service enabled',
-            'activate': 'Feature activated'
-        },
-        'warning': {
-            'delete': 'Item deleted',
-            'remove': 'Item removed',
-            'disable': 'Service disabled',
-            'reset': 'Settings reset',
-            'clear': 'Data cleared',
-            'logout': 'Logged out'
-        },
-        'info': {
-            'view': 'Viewing data',
-            'check': 'System check in progress',
-            'scan': 'Scanning...',
-            'search': 'Searching...',
-            'filter': 'Filter applied',
-            'refresh': 'Page refreshed'
-        },
-        'loading': {
-            'loading': 'Loading, please wait...',
-            'processing': 'Processing...',
-            'syncing': 'Syncing...'
+        body::after {
+            content: "";
+            position: fixed;
+            inset: -10%;
+            pointer-events: none;
+            z-index: -1;
+            background:
+                radial-gradient(60vw 40vh at 15% 12%, rgba(59, 130, 246, 0.08), transparent 60%),
+                radial-gradient(60vw 40vh at 85% 88%, rgba(236, 72, 153, 0.08), transparent 60%),
+                radial-gradient(50vw 35vh at 50% 28%, rgba(34, 211, 238, 0.06), transparent 60%);
         }
-    };
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+            background:
+                linear-gradient(180deg, rgba(2, 6, 23, 0.35), transparent 55%),
+                radial-gradient(80vw 40vh at 50% 0%, rgba(3, 7, 18, 0.45), transparent 60%);
+        }
 
-    if (messages[type]) {
-        for (const [key, message] of Object.entries(messages[type])) {
-            if (action.toLowerCase().includes(key)) {
-                return message;
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Loading Screen */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top, rgba(59, 130, 246, 0.35), transparent 60%), radial-gradient(circle at bottom, rgba(236, 72, 153, 0.35), transparent 60%), rgba(3, 7, 18, 0.96);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeOut 9s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; display: none; }
+        }
+
+        .loader {
+            border-radius: 999px;
+            width: 220px;
+            height: 6px;
+            background: rgba(15, 23, 42, 0.8);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.35), 0 18px 45px rgba(15, 23, 42, 0.9);
+        }
+
+        .loader::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, #38bdf8, #a855f7, #fb7185, transparent);
+            width: 40%;
+            animation: loadingFlow 1.4s ease-in-out infinite;
+        }
+
+        @keyframes loadingFlow {
+            0% { transform: translateX(-120%); }
+            50% { transform: translateX(40%); }
+            100% { transform: translateX(160%); }
+        }
+
+        #loading h1 {
+            margin-top: 26px;
+            font-size: 1.9em;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        #loading p {
+            margin-top: 10px;
+            font-size: 0.95em;
+            color: #e5e7eb;
+            opacity: 0.85;
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Welcome Page */
+        #welcome {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            display: none;
+            padding: 36px 32px;
+            border-radius: 26px;
+            background: rgba(15, 23, 42, 0.9);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(148, 163, 184, 0.3);
+            backdrop-filter: blur(26px);
+            max-width: 720px;
+            width: min(90vw, 720px);
+            position: relative;
+        }
+        #welcome::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 64px;
+            height: 4px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+            opacity: 0.6;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #welcome h1 {
+            font-size: 2.6em;
+            margin-bottom: 12px;
+            letter-spacing: 0.04em;
+            text-shadow: none;
+        }
+
+        #welcome p {
+            font-size: 1.06em;
+            margin-bottom: 28px;
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+        .welcome-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.82em;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            background: rgba(148, 163, 184, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 52px;
+            height: 52px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                radial-gradient(circle at 50% 45%, rgba(148, 163, 184, 0.08), transparent 60%) padding-box,
+                linear-gradient(135deg, var(--accent-1), var(--accent-2)) border-box;
+            border: 1px solid transparent;
+            color: var(--text);
+            text-decoration: none;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+            box-shadow: 0 12px 30px var(--shadow-1);
+            backdrop-filter: blur(8px);
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+            fill: #f9fafb;
+        }
+
+        .social-link-discord {
+            background:
+                radial-gradient(circle at 50% 45%, rgba(148, 163, 184, 0.08), transparent 60%) padding-box,
+                linear-gradient(135deg, #5865F2, #8b5cf6) border-box;
+        }
+
+        .social-link-tiktok {
+            background:
+                radial-gradient(circle at 50% 45%, rgba(0, 242, 234, 0.12), transparent 60%) padding-box,
+                linear-gradient(135deg, #00f2ea, #ff0050) border-box;
+        }
+        .social-link-telegram {
+            background:
+                radial-gradient(circle at 50% 45%, rgba(148, 163, 184, 0.08), transparent 60%) padding-box,
+                linear-gradient(135deg, #2AABEE, #4f46e5) border-box;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 20px 42px var(--shadow-1);
+            filter: brightness(1.06);
+        }
+        .social-link-tiktok:hover {
+            box-shadow: 0 20px 42px var(--shadow-1), 0 0 18px rgba(255, 0, 80, 0.5), 0 0 12px rgba(0, 242, 234, 0.5);
+        }
+
+        .social-link:focus-visible {
+            outline: none;
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.5), 0 18px 38px var(--shadow-1);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #4f46e5, #22c1c3);
+            border: none;
+            color: #0b1120;
+            padding: 14px 26px;
+            font-size: 1.06em;
+            cursor: pointer;
+            border-radius: 14px;
+            box-shadow: 0 16px 38px var(--shadow-1);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 22px 50px var(--shadow-1);
+            filter: brightness(1.02);
+        }
+
+        .btn:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.45), 0 22px 50px var(--shadow-1);
+        }
+        .btn::before { display: none; }
+        .btn svg { width: 18px; height: 18px; fill: #0b1120; }
+
+        /* Main Dashboard */
+        #dashboard {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: min(94vw, 880px);
+            max-width: 880px;
+            animation: fadeIn 1s ease-in-out;
+            padding: 30px 28px 28px;
+            border-radius: 30px;
+            background: rgba(15, 23, 42, 0.94);
+            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(26px);
+        }
+
+        #dashboard h2 {
+            font-size: 2.3em;
+            margin-bottom: 22px;
+            text-shadow: 0 0 14px rgba(56, 189, 248, 0.85), 0 0 38px rgba(59, 130, 246, 0.9);
+            letter-spacing: 0.08em;
+        }
+        #dashboard h2::after {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin-left: 8px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.9);
+            vertical-align: middle;
+        }
+        .dashboard-title {
+            font-size: 1.9em;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: none;
+            align-self: flex-start;
+            text-align: left;
+            margin-top: -4px;
+            margin-bottom: 14px;
+        }
+        .section-title {
+            font-size: 0.98em;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin: 10px 2px 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .section-title.section-title-lg {
+            font-size: 1.12em;
+            letter-spacing: 0.18em;
+        }
+        .section-title::before {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 50% 50%, #60a5fa, #a78bfa);
+            box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+        }
+        .section-title::after {
+            height: 1px;
+            width: 90px;
+            background: linear-gradient(90deg, rgba(148, 163, 184, 0.4), rgba(148, 163, 184, 0.08));
+            border-radius: 999px;
+        }
+
+        .mods-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .controls-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            width: 100%;
+            margin-top: 14px;
+            margin-bottom: 18px;
+        }
+        .mods-groups {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            width: 100%;
+            margin-top: 8px;
+            margin-bottom: 22px;
+        }
+        .mods-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .mods-group.hdr-group {
+            position: relative;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            border-radius: 16px;
+            padding: 10px 12px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+        }
+        .mods-group.hdr-group::before,
+        .mods-group.hdr-group::after {
+            content: "";
+            position: absolute;
+            top: 12px;
+            bottom: 12px;
+            width: 2px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(96, 165, 250, 0.5), rgba(167, 139, 250, 0.25));
+        }
+        .mods-group.hdr-group::before { left: 8px; }
+        .mods-group.hdr-group::after { right: 8px; }
+        .dashboard-note {
+            margin-top: 18px;
+            margin-bottom: 8px;
+            padding: 16px 20px;
+            border-radius: 16px;
+            background: #0f172a;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            color: #cbd5e1;
+            font-size: 0.94em;
+            line-height: 1.85;
+            letter-spacing: 0.02em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+        .dashboard-note p {
+            margin: 0;
+        }
+        .social-links-inline {
+            justify-content: center;
+            align-items: center;
+            margin-top: 12px;
+            gap: 12px;
+        }
+        .social-links-inline .social-link {
+            width: 44px;
+            height: 44px;
+        }
+        .notice-title {
+            font-size: 1.04em;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin: 22px 2px 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #e5e7eb;
+            background: none;
+            -webkit-background-clip: initial;
+            background-clip: initial;
+        }
+
+        .mod-btn {
+            background: #0f172a;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            color: #e5e7eb;
+            padding: 14px 16px;
+            font-size: 1.02em;
+            cursor: pointer;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 12px;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.7);
+            position: relative;
+            width: 100%;
+            min-height: 56px;
+        }
+
+        .mod-btn span {
+            position: relative;
+            flex: 1;
+            text-align: left;
+        }
+        .mod-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: #e5e7eb;
+            flex-shrink: 0;
+        }
+
+        .mod-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 38px rgba(0, 0, 0, 0.75);
+            border-color: rgba(148, 163, 184, 0.45);
+        }
+
+        .mod-btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.75);
+        }
+        .mod-btn::after { display: none; }
+
+        /* Background particles disabled */
+        #particles { display: none; }
+
+        #notification-container {
+            position: fixed;
+            top: 22px;
+            right: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1200;
+        }
+
+        .notification {
+            min-width: 260px;
+            max-width: 340px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(148, 163, 184, 0.8);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.95);
+            opacity: 0;
+            transform: translateX(160%);
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease, border-color 0.22s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .notification-show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .notification::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -30%;
+            width: 160%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #38bdf8, #a78bfa, #fb7185, transparent);
+            transform: translateX(100%);
+        }
+        .notification-show::before {
+            animation: sweep 1.2s ease-out forwards;
+        }
+        @keyframes sweep {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-10%); }
+        }
+
+        .notification-success {
+            border-color: rgba(34, 197, 94, 0.9);
+        }
+
+        .notification-info {
+            border-color: rgba(59, 130, 246, 0.9);
+        }
+
+        .notification-error {
+            border-color: rgba(248, 113, 113, 0.9);
+        }
+
+        .notification-message {
+            margin-right: 10px;
+        }
+
+        .notification-close {
+            background: transparent;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        .notification-spinner {
+            width: 12px;
+            height: 12px;
+            border: 2px solid rgba(148, 163, 184, 0.6);
+            border-top-color: #60a5fa;
+            border-radius: 999px;
+            animation: spin 0.9s linear infinite;
+            margin-right: 8px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .notification-icon {
+            width: 12px;
+            height: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+        }
+        .notification-icon-success svg {
+            width: 12px;
+            height: 12px;
+            fill: #22c55e;
+        }
+        .notification-icon-error svg {
+            width: 12px;
+            height: 12px;
+            fill: #f87171;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
             }
         }
-    }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading">
+        <div class="loader"></div>
+        <h1 id="loading-title">INITIALIZING PUBG MODS...</h1>
+        <p id="loading-text-primary">Loading core engine, reading config files and preparing safe tweaks...</p>
+        <p id="loading-text-secondary" style="display:none;">To unlock the full paid version, join our Discord server.</p>
+    </div>
 
-    return `Executing "${action}"...`;
-}
+    <!-- Welcome Page -->
+    <div id="welcome">
+        <div class="welcome-badge">NX PUBG</div>
+        <h1>Welcome to PUBG Mods By NX</h1>
+        <p>Push your PUBG experience to the absolute limit with cinematic graphics and ultra smooth FPS.</p>
+        <button id="btnEnterDashboard" class="btn" data-code="NX_ENTER_DASHBOARD" data-command="ENTER_DASHBOARD" onclick="enterDashboard(this)">
+            <svg viewBox="0 0 16 16"><polygon points="5,4 12,8 5,12"/></svg>
+            <span>ENTER DASHBOARD</span>
+        </button>
+        <div class="social-links">
+            <a href="https://discord.gg/nxgamingstore" class="social-link social-link-discord" aria-label="Discord server" title="Discord" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 16 16">
+                    <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025 13.235 13.235 0 0 0-3.257 1.011.047.047 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c0 .017.01.033.021.047a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059l-.018-.012c-.45-.169-.875-.376-1.275-.619a.05.05 0 0 1-.02-.066l.015-.02c.086-.114.173-.23.254-.347a.05.05 0 0 1 .065-.017c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .066.017c.081.117.168.233.254.347a.051.051 0 0 1-.019.066 8.3 8.3 0 0 1-1.276.619.05.05 0 0 0-.018.012.05.05 0 0 0-.01.059c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.035c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
+                </svg>
+            </a>
+            <a href="https://www.tiktok.com/@nxtiktoktv?_r=1&_t=ZS-937AgsT8Ogh" class="social-link social-link-tiktok" aria-label="TikTok profile" title="TikTok" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 16 16">
+                    <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+                </svg>
+            </a>
+            <a href="https://t.me/NxStoreofficial" class="social-link social-link-telegram" aria-label="Telegram channel" title="Telegram" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 16 16">
+                    <path d="M15.5 2.5 13.6 14.2c-.2 1.1-.9 1.4-1.9.9l-4.3-3.2-2.1 2a1.3 1.3 0 0 1-1 .4l.4-4.5L12.7 3.2c.6-.5-0.1-.7-.8-.2L3.8 8.1 1 7.2C0 6.9 0 6.1 1.1 5.6l13.2-5.1c.9-.3 1.7.2 1.2 2z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
 
-document.addEventListener('DOMContentLoaded', function() {
-    function attachNotificationEvents() {
-        document.querySelectorAll("button[data-action], button[data-mod]").forEach(btn => {
-            if (btn.hasAttribute('data-notification-attached')) return;
-            btn.setAttribute('data-notification-attached', 'true');
+    <!-- Main Dashboard -->
+    <div id="dashboard">
+        <h2 class="dashboard-title">NX TWEAKER</h2>
+        <div class="section-title section-title-lg">Graphics</div>
+        <div class="mods-groups">
+            <div class="mods-group">
+                <div class="section-title">Smooth</div>
+                <div class="mods-container">
+                    <button class="mod-btn" data-code="NX_ULTRA_120" data-command="ULTRA_120" onclick="activateMod(this,'ultra')">
+                        <svg viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+                            <line x1="8" y1="8" x2="12" y2="6" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Super Smooth 120FPS</span>
+                    </button>
+                    <button class="mod-btn" data-code="NX_SMOOTH_120" data-command="SMOOTH_120" onclick="activateMod(this,'other')">
+                        <svg viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+                            <line x1="8" y1="8" x2="11" y2="9" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Smooth 120FPS</span>
+                    </button>
+                    <button class="mod-btn" data-code="NX_BALANCED_120" data-command="BALANCED_120" onclick="activateMod(this,'balanced120')">
+                        <svg viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+                            <line x1="8" y1="8" x2="10" y2="10" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Balanced 120FPS</span>
+                    </button>
+                </div>
+            </div>
+            <div class="mods-group">
+                <div class="section-title">HDR</div>
+                <div class="mods-container">
+                    <button class="mod-btn" data-code="NX_HDR_60" data-command="HDR_60" onclick="activateMod(this,'hdr60')">
+                        <svg viewBox="0 0 16 16"><polygon points="8,2 9.8,6.2 14,6.5 10.7,9.1 11.8,13 8,10.8 4.2,13 5.3,9.1 2,6.5 6.2,6.2"/></svg>
+                        <span>HDR 60FPS</span>
+                    </button>
+                    <button class="mod-btn" data-code="NX_HDR_90" data-command="HDR_90" onclick="activateMod(this,'hdr90')">
+                        <svg viewBox="0 0 16 16"><polygon points="8,2 9.8,6.2 14,6.5 10.7,9.1 11.8,13 8,10.8 4.2,13 5.3,9.1 2,6.5 6.2,6.2"/></svg>
+                        <span>HDR 90FPS</span>
+                    </button>
+                    <button class="mod-btn" data-code="NX_HDR_120" data-command="HDR_120" onclick="activateMod(this,'hdr120')">
+                        <svg viewBox="0 0 16 16"><polygon points="8,2 9.8,6.2 14,6.5 10.7,9.1 11.8,13 8,10.8 4.2,13 5.3,9.1 2,6.5 6.2,6.2"/></svg>
+                        <span>HDR 120FPS</span>
+                    </button>
+                </div>
+            </div>
+            <div class="mods-group">
+                <div class="section-title">Ultra HDR</div>
+                <div class="mods-container">
+                    <button class="mod-btn" data-code="NX_ULTRAHDR_60" data-command="ULTRAHDR_60" onclick="activateMod(this,'ultrahdr60')">
+                        <svg viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+                            <line x1="8" y1="8" x2="12" y2="6" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Ultra HDR 60FPS</span>
+                    </button>
+                    <button class="mod-btn" data-code="NX_ULTRAHDR_90" data-command="ULTRAHDR_90" onclick="activateMod(this,'ultrahdr90')">
+                        <svg viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+                            <line x1="8" y1="8" x2="12" y2="6" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Ultra HDR 90FPS</span>
+                    </button>
+                    <button class="mod-btn" data-code="NX_ULTRAHDR_120" data-command="ULTRAHDR_120" onclick="activateMod(this,'ultrahdr120')">
+                        <svg viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+                            <line x1="8" y1="8" x2="12" y2="6" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Ultra HDR 120FPS</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="section-title section-title-lg">Emulator</div>
+        <div class="controls-container">
+            <button class="mod-btn" data-code="NX_LAUNCH_EMULATOR" data-command="LAUNCH_EMULATOR" onclick="startEmulator(this)">
+                <svg viewBox="0 0 16 16">
+                    <rect x="2" y="3" width="12" height="9" rx="1.5" ry="1.5" fill="none" stroke="#e5e7eb" stroke-width="1.4"/>
+                    <rect x="5" y="12.5" width="6" height="1" fill="#e5e7eb"/>
+                </svg>
+                <span>Launch Emulator</span>
+            </button>
+            <button class="mod-btn" data-code="NX_LAUNCH_GAME" data-command="LAUNCH_GAME" onclick="startGame(this)">
+                <svg viewBox="0 0 16 16"><polygon points="5,4 12,8 5,12"/></svg>
+                <span>Launch Game</span>
+            </button>
+            <button class="mod-btn" data-code="NX_STOP_EMULATOR" data-command="STOP_EMULATOR" onclick="killEmulator(this)">
+                <svg viewBox="0 0 16 16"><rect x="4" y="4" width="8" height="8"/></svg>
+                <span>Stop Emulator</span>
+            </button>
+        </div>
+        <div class="section-title notice-title">NOTICE</div>
+        <div class="dashboard-note">
+            <p>This is the free edition and not the full version. To purchase, contact us:</p>
+            <div class="social-links social-links-inline">
+                <a href="https://t.me/NxStoreofficial" class="social-link social-link-telegram" aria-label="Telegram channel" title="Telegram" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 16 16">
+                        <path d="M15.5 2.5 13.6 14.2c-.2 1.1-.9 1.4-1.9.9l-4.3-3.2-2.1 2a1.3 1.3 0 0 1-1 .4l.4-4.5L12.7 3.2c.6-.5-0.1-.7-.8-.2L3.8 8.1 1 7.2C0 6.9 0 6.1 1.1 5.6l13.2-5.1c.9-.3 1.7.2 1.2 2z"/>
+                    </svg>
+                </a>
+                <a href="https://discord.gg/nxgamingstore" class="social-link social-link-discord" aria-label="Discord server" title="Discord" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 16 16">
+                        <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025 13.235 13.235 0 0 0-3.257 1.011.047.047 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c0 .017.01.033.021.047a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059l-.018-.012c-.45-.169-.875-.376-1.275-.619a.05.05 0 0 1-.02-.066l.015-.02c.086-.114.173-.23.254-.347a.05.05 0 0 1 .065-.017c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .066.017c.081.117.168.233.254.347a.051.051 0 0 1-.019.066 8.3 8.3 0 0 1-1.276.619.05.05 0 0 0-.018.012.05.05 0 0 0-.01.059c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.035c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
+                    </svg>
+                </a>
+                <a href="https://www.tiktok.com/@nxtiktoktv?_r=1&_t=ZS-937AgsT8Ogh" class="social-link social-link-tiktok" aria-label="TikTok profile" title="TikTok" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 16 16">
+                        <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
 
-            btn.addEventListener("click", function(e) {
-                const action = this.getAttribute("data-action") || this.getAttribute("data-mod");
-                const customMessage = this.getAttribute("data-message");
-                const customType = this.getAttribute("data-notification-type");
-                const customTitle = this.getAttribute("data-notification-title");
+    <!-- Particles for Background Effect (Optional Luxury) -->
+    <div id="notification-container" role="status" aria-live="polite"></div>
 
-                if (action) {
-                    const notificationType = customType || getNotificationTypeForAction(action);
-                    const message = customMessage || getCustomMessage(action, notificationType);
-                    showNotification(message, notificationType, customTitle);
+    <script>
+        const loadingTitle = document.getElementById('loading-title');
+        const loadingTextPrimary = document.getElementById('loading-text-primary');
+        const loadingTextSecondary = document.getElementById('loading-text-secondary');
 
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
+        setTimeout(() => {
+            if (loadingTitle && loadingTextPrimary) {
+                loadingTitle.textContent = 'INITIALIZING ENGINE...';
+                loadingTextPrimary.textContent = 'Loading core modules, reading configs and preparing safe tweaks...';
+            }
+        }, 900);
+
+        setTimeout(() => {
+            if (loadingTitle && loadingTextSecondary) {
+                loadingTitle.textContent = 'UNLOCK FULL VERSION';
+                loadingTextSecondary.style.display = 'block';
+            }
+        }, 2200);
+
+        setTimeout(() => {
+            const loading = document.getElementById('loading');
+            const welcome = document.getElementById('welcome');
+            if (loading && welcome) {
+                loading.style.display = 'none';
+                welcome.style.display = 'block';
+            }
+        }, 7200);
+
+        // Enter Dashboard
+        function enterDashboard(el) {
+            document.getElementById('welcome').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'flex';
+            const code = el && el.dataset ? el.dataset.code : 'NX_ENTER_DASHBOARD';
+            const command = el && el.dataset ? el.dataset.command : 'ENTER_DASHBOARD';
+            const args = parseArgs(el && el.dataset ? el.dataset.args : '');
+            sendToHost('enterDashboard', { code, command, args });
+        }
+
+        const notificationContainer = document.getElementById('notification-container');
+        let pendingNotification = null;
+
+        function showNotification(message, type = 'info') {
+            if (!notificationContainer) return;
+            if (type === 'info') {
+                if (pendingNotification && pendingNotification.isConnected) {
+                    const t = pendingNotification.querySelector('.notification-message');
+                    if (t) t.textContent = message;
+                    pendingNotification.setAttribute('aria-busy', 'true');
+                    if (!pendingNotification.querySelector('.notification-spinner')) {
+                        const succ = pendingNotification.querySelector('.notification-icon-success');
+                        const err = pendingNotification.querySelector('.notification-icon-error');
+                        if (succ) succ.remove();
+                        if (err) err.remove();
+                        const spinner = document.createElement('span');
+                        spinner.className = 'notification-spinner';
+                        pendingNotification.insertBefore(spinner, t);
+                    }
+                    return;
+                }
+                const wrapper = document.createElement('div');
+                wrapper.className = 'notification notification-info';
+                wrapper.setAttribute('aria-busy', 'true');
+                const spinner = document.createElement('span');
+                spinner.className = 'notification-spinner';
+                const text = document.createElement('div');
+                text.className = 'notification-message';
+                text.textContent = message;
+                const close = document.createElement('button');
+                close.className = 'notification-close';
+                close.textContent = '×';
+                close.onclick = () => {
+                    wrapper.classList.remove('notification-show');
+                    setTimeout(() => wrapper.remove(), 200);
+                    if (pendingNotification === wrapper) pendingNotification = null;
+                };
+                wrapper.appendChild(spinner);
+                wrapper.appendChild(text);
+                wrapper.appendChild(close);
+                notificationContainer.appendChild(wrapper);
+                requestAnimationFrame(() => wrapper.classList.add('notification-show'));
+                pendingNotification = wrapper;
+                return;
+            }
+            let wrapper = pendingNotification;
+            let textEl;
+            if (wrapper && wrapper.isConnected) {
+                wrapper.className = `notification notification-${type}`;
+                wrapper.setAttribute('aria-busy', 'false');
+                const sp = wrapper.querySelector('.notification-spinner');
+                if (sp) sp.remove();
+                textEl = wrapper.querySelector('.notification-message');
+                if (textEl) textEl.textContent = message;
+                let leading;
+                if (type === 'success') {
+                    leading = document.createElement('span');
+                    leading.className = 'notification-icon notification-icon-success';
+                    leading.innerHTML = '<svg viewBox="0 0 16 16"><path d="M13.485 1.929a1 1 0 0 1 1.415 1.414l-8 8a1 1 0 0 1-1.414 0l-3-3A1 1 0 0 1 3.9 7.929l2.293 2.293 7.292-7.293z"/></svg>';
+                } else {
+                    leading = document.createElement('span');
+                    leading.className = 'notification-icon notification-icon-error';
+                    leading.innerHTML = '<svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 1 0 14A7 7 0 0 1 8 1zm0 3a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-1.5 0v-4.5A.75.75 0 0 1 8 4zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>';
+                }
+                wrapper.insertBefore(leading, textEl);
+                wrapper.classList.add('notification-show');
+            } else {
+                wrapper = document.createElement('div');
+                wrapper.className = `notification notification-${type}`;
+                wrapper.setAttribute('aria-busy', 'false');
+                let leading;
+                if (type === 'success') {
+                    leading = document.createElement('span');
+                    leading.className = 'notification-icon notification-icon-success';
+                    leading.innerHTML = '<svg viewBox="0 0 16 16"><path d="M13.485 1.929a1 1 0 0 1 1.415 1.414l-8 8a1 1 0 0 1-1.414 0l-3-3A1 1 0 0 1 3.9 7.929l2.293 2.293 7.292-7.293z"/></svg>';
+                } else {
+                    leading = document.createElement('span');
+                    leading.className = 'notification-icon notification-icon-error';
+                    leading.innerHTML = '<svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 1 0 14A7 7 0 0 1 8 1zm0 3a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-1.5 0v-4.5A.75.75 0 0 1 8 4zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>';
+                }
+                const text = document.createElement('div');
+                text.className = 'notification-message';
+                text.textContent = message;
+                const close = document.createElement('button');
+                close.className = 'notification-close';
+                close.textContent = '×';
+                close.onclick = () => {
+                    wrapper.classList.remove('notification-show');
+                    setTimeout(() => wrapper.remove(), 200);
+                };
+                wrapper.appendChild(leading);
+                wrapper.appendChild(text);
+                wrapper.appendChild(close);
+                notificationContainer.appendChild(wrapper);
+                requestAnimationFrame(() => wrapper.classList.add('notification-show'));
+            }
+            setTimeout(() => {
+                if (!wrapper.isConnected) return;
+                wrapper.classList.remove('notification-show');
+                setTimeout(() => {
+                    if (wrapper.isConnected) wrapper.remove();
+                }, 200);
+                pendingNotification = null;
+            }, 2600);
+        }
+
+        function activateMod(el, mod) {
+            const messages = {
+                hdr: 'Applying Ultra HDR 120FPS preset...',
+                hdr120: 'Applying HDR 120FPS preset...',
+                hdr60: 'Applying HDR 60FPS preset...',
+                hdr90: 'Applying HDR 90FPS preset...',
+                ultra: 'Applying Super Smooth 120FPS preset...',
+                other: 'Applying Smooth 120FPS preset...',
+                balanced120: 'Applying Balanced 120FPS preset...',
+                ultrahdr60: 'Applying Ultra HDR 60FPS preset...',
+                ultrahdr90: 'Applying Ultra HDR 90FPS preset...',
+                ultrahdr120: 'Applying Ultra HDR 120FPS preset...'
+            };
+            const message = messages[mod] || `Mod "${mod.toUpperCase()}" has been activated.`;
+            showNotification(message, 'info');
+            const codeMap = {
+                hdr: 'NX_HDR_120',
+                hdr120: 'NX_HDR_120',
+                hdr60: 'NX_HDR_60',
+                hdr90: 'NX_HDR_90',
+                ultra: 'NX_ULTRA_120',
+                other: 'NX_SMOOTH_120',
+                balanced120: 'NX_BALANCED_120',
+                ultrahdr60: 'NX_ULTRAHDR_60',
+                ultrahdr90: 'NX_ULTRAHDR_90',
+                ultrahdr120: 'NX_ULTRAHDR_120'
+            };
+            const cmdMap = {
+                hdr: 'HDR_120',
+                hdr120: 'HDR_120',
+                hdr60: 'HDR_60',
+                hdr90: 'HDR_90',
+                ultra: 'ULTRA_120',
+                other: 'SMOOTH_120',
+                balanced120: 'BALANCED_120',
+                ultrahdr60: 'ULTRAHDR_60',
+                ultrahdr90: 'ULTRAHDR_90',
+                ultrahdr120: 'ULTRAHDR_120'
+            };
+            const code = el && el.dataset ? el.dataset.code : (codeMap[mod] || 'NX_MOD');
+            const command = el && el.dataset ? el.dataset.command : (cmdMap[mod] || 'MOD');
+            const args = parseArgs(el && el.dataset ? el.dataset.args : '');
+            sendToHost('activateMod', { mod, code, command, args });
+        }
+
+        function startGame(el) {
+            showNotification('Launching PUBG with your current mod profile...', 'info');
+            const code = el && el.dataset ? el.dataset.code : 'NX_LAUNCH_GAME';
+            const command = el && el.dataset ? el.dataset.command : 'LAUNCH_GAME';
+            const args = parseArgs(el && el.dataset ? el.dataset.args : '');
+            sendToHost('startGame', { code, command, args });
+        }
+
+        function startEmulator(el) {
+            showNotification('Starting emulator instance...', 'info');
+            const code = el && el.dataset ? el.dataset.code : 'NX_LAUNCH_EMULATOR';
+            const command = el && el.dataset ? el.dataset.command : 'LAUNCH_EMULATOR';
+            const args = parseArgs(el && el.dataset ? el.dataset.args : '');
+            sendToHost('startEmulator', { code, command, args });
+        }
+
+        function killEmulator(el) {
+            showNotification('Stopping emulator process...', 'info');
+            const code = el && el.dataset ? el.dataset.code : 'NX_STOP_EMULATOR';
+            const command = el && el.dataset ? el.dataset.command : 'STOP_EMULATOR';
+            const args = parseArgs(el && el.dataset ? el.dataset.args : '');
+            sendToHost('killEmulator', { code, command, args });
+        }
+        const hasHost = !!(window.chrome && window.chrome.webview);
+        function parseArgs(s) {
+            const out = {};
+            if (!s) return out;
+            String(s).split(';').forEach(p => {
+                const [k, v] = p.split('=');
+                if (k) out[k.trim()] = (v || '').trim();
+            });
+            return out;
+        }
+        function sendToHost(type, payload = {}) {
+            try {
+                if (hasHost) {
+                    window.chrome.webview.postMessage({ type, payload });
+                } else if (window.external && typeof window.external.InvokeMethod === 'function') {
+                    window.external.InvokeMethod(JSON.stringify({ type, payload }));
+                }
+            } catch (_) {}
+        }
+        function handleHostMessage(data) {
+            const d = data || {};
+            switch (d.type) {
+                case 'showNotification':
+                    if (d.payload && d.payload.message) {
+                        showNotification(d.payload.message, d.payload.kind || 'info');
+                    }
+                    break;
+                case 'enterDashboard':
+                    enterDashboard();
+                    break;
+                case 'activateMod':
+                    if (d.payload && d.payload.mod) activateMod(String(d.payload.mod));
+                    break;
+                case 'startGame':
+                    startGame();
+                    break;
+                case 'startEmulator':
+                    startEmulator();
+                    break;
+                case 'killEmulator':
+                    killEmulator();
+                    break;
+                case 'click':
+                    if (d.payload && d.payload.id) {
+                        const el = document.getElementById(String(d.payload.id));
+                        if (el && typeof el.click === 'function') el.click();
+                    }
+                    break;
+                case 'exec':
+                    if (d.payload && d.payload.command) {
+                        const c = String(d.payload.command);
+                        switch (c) {
+                            case 'ENTER_DASHBOARD': enterDashboard(); break;
+                            case 'HDR_120': activateMod(null,'hdr'); break;
+                            case 'HDR_60': activateMod(null,'hdr60'); break;
+                            case 'ULTRA_120': activateMod(null,'ultra'); break;
+                            case 'SMOOTH_120': activateMod(null,'other'); break;
+                            case 'LAUNCH_EMULATOR': startEmulator(); break;
+                            case 'LAUNCH_GAME': startGame(); break;
+                            case 'STOP_EMULATOR': killEmulator(); break;
+                            default: break;
+                        }
+                    }
+                    break;
+                case 'setStyle':
+                    document.body.classList.add('theme-minimal');
+                    break;
+                default:
+                    break;
+            }
+        }
+        if (hasHost) {
+            window.chrome.webview.addEventListener('message', e => handleHostMessage(e.data));
+            window.chrome.webview.postMessage({
+                type: 'ready',
+                payload: {
+                    code: 'NX_READY',
+                    command: 'READY',
+                    version: '1.0',
+                    title: 'NX TWEAKER',
+                    features: ['mods', 'controls', 'notifications', 'loading', 'welcome']
+                }
+            });
+        }
+
+        document.querySelectorAll('a.social-link').forEach(a => {
+            a.setAttribute('target', '_blank');
+            a.setAttribute('rel', 'noopener noreferrer');
+            a.addEventListener('click', e => {
+                const href = a.getAttribute('href');
+                if (!href || href === '#') return;
+                if (hasHost) {
+                    e.preventDefault();
+                    sendToHost('openExternal', { href });
                 }
             });
         });
-    }
-
-    attachNotificationEvents();
-
-    const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.type === 'childList') {
-                attachNotificationEvents();
-            }
-        });
-    });
-
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
-});
-
-window.showSuccess = (message, title) => notify.success(message, title);
-window.showError = (message, title) => notify.error(message, title);
-window.showWarning = (message, title) => notify.warning(message, title);
-window.showInfo = (message, title) => notify.info(message, title);
-window.showLoading = (message, title) => notify.loading(message, title);
-
-
-
-
-</Script>
+        
+    </script>
 </body>
 </html>
