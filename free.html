@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUBG Mods Dashboard</title>
+    <style>
+        /* General Styles */
+        :root {
+            --bg: #020617;
+            --glass: rgba(15, 23, 42, 0.96);
+            --text: #f8fafc;
+            --muted: #e5e7eb;
+            --accent-1: #60a5fa;
+            --accent-2: #a78bfa;
+            --accent-3: #22d3ee;
+            --ring: rgba(59, 130, 246, 0.9);
+            --shadow-1: rgba(15, 23, 42, 0.9);
+            --shadow-2: rgba(0, 0, 0, 0.9);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(180deg, #0b1120, #0f172a);
+            color: #fff;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background 0.5s ease;
+            position: relative;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: -10%;
+            pointer-events: none;
+            z-index: -1;
+            background:
+                radial-gradient(60vw 40vh at 15% 12%, rgba(59, 130, 246, 0.08), transparent 60%),
+                radial-gradient(60vw 40vh at 85% 88%, rgba(236, 72, 153, 0.08), transparent 60%),
+                radial-gradient(50vw 35vh at 50% 28%, rgba(34, 211, 238, 0.06), transparent 60%);
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+            background:
+                linear-gradient(180deg, rgba(2, 6, 23, 0.35), transparent 55%),
+                radial-gradient(80vw 40vh at 50% 0%, rgba(3, 7, 18, 0.45), transparent 60%);
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Loading Screen */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top, rgba(59, 130, 246, 0.35), transparent 60%), radial-gradient(circle at bottom, rgba(236, 72, 153, 0.35), transparent 60%), rgba(3, 7, 18, 0.96);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeOut 9s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; display: none; }
+        }
+
+        .loader {
+            border-radius: 999px;
+            width: 220px;
+            height: 6px;
+            background: rgba(15, 23, 42, 0.8);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.35), 0 18px 45px rgba(15, 23, 42, 0.9);
+        }
+
+        .loader::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, #38bdf8, #a855f7, #fb7185, transparent);
+            width: 40%;
+            animation: loadingFlow 1.4s ease-in-out infinite;
+        }
+
+        @keyframes loadingFlow {
+            0% { transform: translateX(-120%); }
+            50% { transform: translateX(40%); }
+            100% { transform: translateX(160%); }
+        }
+
+        #loading h1 {
+            margin-top: 26px;
+            font-size: 1.9em;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        #loading p {
+            margin-top: 10px;
+            font-size: 0.95em;
+            color: #e5e7eb;
+            opacity: 0.85;
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Welcome Page */
+        #welcome {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            display: none;
+            padding: 36px 32px;
+            border-radius: 26px;
+            background: rgba(15, 23, 42, 0.9);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(148, 163, 184, 0.3);
+            backdrop-filter: blur(26px);
+            max-width: 720px;
+            width: min(90vw, 720px);
+            position: relative;
+        }
+        #welcome::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 64px;
+            height: 4px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+            opacity: 0.6;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #welcome h1 {
+            font-size: 2.6em;
+            margin-bottom: 12px;
+            letter-spacing: 0.04em;
+            text-shadow: none;
+        }
+
+        #welcome p {
+            font-size: 1.06em;
+            margin-bottom: 28px;
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+        .welcome-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.82em;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            background: rgba(148, 163, 184, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 52px;
+            height: 52px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                radial-gradient(circle at 50% 45%, rgba(148, 163, 184, 0.08), transparent 60%) padding-box,
+                linear-gradient(135deg, var(--accent-1), var(--accent-2)) border-box;
+            border: 1px solid transparent;
+            color: var(--text);
+            text-decoration: none;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+            box-shadow: 0 12px 30px var(--shadow-1);
+            backdrop-filter: blur(8px);
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+            fill: #f9fafb;
+        }
+
+        .social-link-discord {
+            background:
+                radial-gradient(circle at 50% 45%, rgba(148, 163, 184, 0.08), transparent 60%) padding-box,
+                linear-gradient(135deg, #5865F2, #8b5cf6) border-box;
+        }
+
+        .social-link-tiktok {
+            background:
+                radial-gradient(circle at 50% 45%, rgba(0, 242, 234, 0.12), transparent 60%) padding-box,
+                linear-gradient(135deg, #00f2ea, #ff0050) border-box;
+        }
+        .social-link-telegram {
+            background:
+                radial-gradient(circle at 50% 45%, rgba(148, 163, 184, 0.08), transparent 60%) padding-box,
+                linear-gradient(135deg, #2AABEE, #4f46e5) border-box;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 20px 42px var(--shadow-1);
+            filter: brightness(1.06);
+        }
+        .social-link-tiktok:hover {
+            box-shadow: 0 20px 42px var(--shadow-1), 0 0 18px rgba(255, 0, 80, 0.5), 0 0 12px rgba(0, 242, 234, 0.5);
+        }
+
+        .social-link:focus-visible {
+            outline: none;
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.5), 0 18px 38px var(--shadow-1);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #4f46e5, #22c1c3);
+            border: none;
+            color: #0b1120;
+            padding: 14px 26px;
+            font-size: 1.06em;
+            cursor: pointer;
+            border-radius: 14px;
+            box-shadow: 0 16px 38px var(--shadow-1);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 22px 50px var(--shadow-1);
+            filter: brightness(1.02);
+        }
+
+        .btn:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.45), 0 22px 50px var(--shadow-1);
+        }
+        .btn::before { display: none; }
+        .btn svg { width: 18px; height: 18px; fill: #0b1120; }
+
+        /* Main Dashboard */
+        #dashboard {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: min(94vw, 880px);
+            max-width: 880px;
+            animation: fadeIn 1s ease-in-out;
+            padding: 30px 28px 28px;
+            border-radius: 30px;
+            background: rgba(15, 23, 42, 0.94);
+            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(26px);
+        }
+
+        #dashboard h2 {
+            font-size: 2.3em;
+            margin-bottom: 22px;
+            text-shadow: 0 0 14px rgba(56, 189, 248, 0.85), 0 0 38px rgba(59, 130, 246, 0.9);
+            letter-spacing: 0.08em;
+        }
+        #dashboard h2::after {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin-left: 8px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.9);
+            vertical-align: middle;
+        }
+        .dashboard-title {
+            font-size: 1.9em;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: none;
+            align-self: flex-start;
+            text-align: left;
+            margin-top: -4px;
+            margin-bottom: 14px;
+        }
+        .section-title {
+            font-size: 0.98em;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin: 10px 2px 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .section-title.section-title-lg {
+            font-size: 1.12em;
+            letter-spacing: 0.18em;
+        }
+        .section-title::before {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 50% 50%, #60a5fa, #a78bfa);
+            box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+        }
+        .section-title::after {
+            height: 1px;
+            width: 90px;
+            background: linear-gradient(90deg, rgba(148, 163, 184, 0.4), rgba(148, 163, 184, 0.08));
+            border-radius: 999px;
+        }
+
+        .mods-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .controls-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            width: 100%;
+            margin-top: 14px;
+            margin-bottom: 18px;
+        }
+        .dashboard-note {
+            margin-top: 18px;
+            margin-bottom: 8px;
+            padding: 16px 20px;
+            border-radius: 16px;
+            background: #0f172a;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            color: #cbd5e1;
+            font-size: 0.94em;
+            line-height: 1.85;
+            letter-spacing: 0.02em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+        .dashboard-note p {
+            margin: 0;
+        }
+        .social-links-inline {
+            justify-content: center;
+            align-items: center;
+            margin-top: 12px;
+            gap: 12px;
+        }
+        .social-links-inline .social-link {
+            width: 44px;
+            height: 44px;
+        }
+        .notice-title {
+            font-size: 1.04em;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin: 22px 2px 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #e5e7eb;
+            background: none;
+            -webkit-background-clip: initial;
+            background-clip: initial;
+        }
+
+        .mod-btn {
+            background: #0f172a;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            color: #e5e7eb;
+            padding: 14px 16px;
+            font-size: 1.02em;
+            cursor: pointer;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 12px;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.7);
+            position: relative;
+            width: 100%;
+            min-height: 56px;
+        }
+
+        .mod-btn span {
+            position: relative;
+            flex: 1;
+            text-align: left;
+        }
+        .mod-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: #e5e7eb;
+            flex-shrink: 0;
+        }
+
+        .mod-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 38px rgba(0, 0, 0, 0.75);
+            border-color: rgba(148, 163, 184, 0.45);
+        }
+
+        .mod-btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.75);
+        }
+        .mod-btn::after { display: none; }
+
+        /* Background particles disabled */
+        #particles { display: none; }
+
+        #notification-container {
+            position: fixed;
+            top: 22px;
+            right: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1200;
+        }
+
+        .notification {
+            min-width: 260px;
+            max-width: 340px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(148, 163, 184, 0.8);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.95);
+            opacity: 0;
+            transform: translateX(160%);
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease, border-color 0.22s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .notification-show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .notification::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -30%;
+            width: 160%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #38bdf8, #a78bfa, #fb7185, transparent);
+            transform: translateX(100%);
+        }
+        .notification-show::before {
+            animation: sweep 1.2s ease-out forwards;
+        }
+        @keyframes sweep {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-10%); }
+        }
+
+        .notification-success {
+            border-color: rgba(34, 197, 94, 0.9);
+        }
+
+        .notification-info {
+            border-color: rgba(59, 130, 246, 0.9);
+        }
+
+        .notification-error {
+            border-color: rgba(248, 113, 113, 0.9);
+        }
+
+        .notification-message {
+            margin-right: 10px;
+        }
+
+        .notification-close {
+            background: transparent;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        .notification-spinner {
+            width: 12px;
+            height: 12px;
+            border: 2px solid rgba(148, 163, 184, 0.6);
+            border-top-color: #60a5fa;
+            border-radius: 999px;
+            animation: spin 0.9s linear infinite;
+            margin-right: 8px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .notification-icon {
+            width: 12px;
+            height: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+        }
+        .notification-icon-success svg {
+            width: 12px;
+            height: 12px;
+            fill: #22c55e;
+        }
+        .notification-icon-error svg {
+            width: 12px;
+            height: 12px;
+            fill: #f87171;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading">
+        <div class="loader"></div>
+        <h1 id="loading-title">INITIALIZING PUBG MODS...</h1>
+        <p id="loading-text-primary">Loading core engine, reading config files and preparing safe tweaks...</p>
+        <p id="loading-text-secondary" style="display:none;">To unlock the full paid version, join our Discord server.</p>
+    </div>
+
+    <!-- Welcome Page -->
+    <div id="welcome">
+        <div class="welcome-badge">NX PUBG</div>
+        <h1>Welcome to PUBG Mods By NX</h1>
+        <p>Push your PUBG experience to the absolute limit with cinematic graphics and ultra smooth FPS.</p>
+        <button id="btnEnterDashboard" class="btn" data-code="NX_ENTER_DASHBOARD" data-command="ENTER_DASHBOARD" onclick="enterDashboard(this)">
+            <svg viewBox="0 0 16 16"><polygon points="5,4 12,8 5,12"/></svg>
+            <span>ENTER DASHBOARD</span>
+        </button>
+        <div class="social-links">
+            <a href="https://discord.gg/nxgamingstore" class="social-link social-link-discord" aria-label="Discord server" title="Discord" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 16 16">
+                    <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025 13.235 13.235 0 0 0-3.257 1.011.047.047 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c0 .017.01.033.021.047a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059l-.018-.012c-.45-.169-.875-.376-1.275-.619a.05.05 0 0 1-.02-.066l.015-.02c.086-.114.173-.23.254-.347a.05.05 0 0 1 .065-.017c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .066.017c.081.117.168.233.254.347a.051.051 0 0 1-.019.066 8.3 8.3 0 0 1-1.276.619.05.05 0 0 0-.018.012.05.05 0 0 0-.01.059c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.035c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
+                </svg>
+            </a>
+            <a href="https://www.tiktok.com/@nxtiktoktv?_r=1&_t=ZS-937AgsT8Ogh" class="social-link social-link-tiktok" aria-label="TikTok profile" title="TikTok" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 16 16">
+                    <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+                </svg>
+            </a>
+            <a href="https://t.me/NxStoreofficial" class="social-link social-link-telegram" aria-label="Telegram channel" title="Telegram" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 16 16">
+                    <path d="M15.5 2.5 13.6 14.2c-.2 1.1-.9 1.4-1.9.9l-4.3-3.2-2.1 2a1.3 1.3 0 0 1-1 .4l.4-4.5L12.7 3.2c.6-.5-0.1-.7-.8-.2L3.8 8.1 1 7.2C0 6.9 0 6.1 1.1 5.6l13.2-5.1c.9-.3 1.7.2 1.2 2z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard">
+        <h2 class="dashboard-title">NX TWEAKER</h2>
+        <div class="section-title section-title-lg">Graphics</div>
+        <div class="mods-container">
+            <button class="mod-btn" data-code="NX_ULTRA_120" data-command="ULTRA_120" onclick="activateMod(this,'ultra')">
+                <svg viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+                    <line x1="8" y1="8" x2="12" y2="6" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span>Ultra Smooth 120FPS</span>
+            </button>
+            <button class="mod-btn" data-code="NX_SMOOTH_120" data-command="SMOOTH_120" onclick="activateMod(this,'other')">
+                <svg viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="6" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+                    <line x1="8" y1="8" x2="11" y2="9" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span>Smooth 120FPS</span>
+            </button>
+            <button class="mod-btn" data-code="NX_HDR_60" data-command="HDR_60" onclick="activateMod(this,'hdr60')">
+                <svg viewBox="0 0 16 16"><polygon points="8,2 9.8,6.2 14,6.5 10.7,9.1 11.8,13 8,10.8 4.2,13 5.3,9.1 2,6.5 6.2,6.2"/></svg>
+                <span>HDR 60FPS</span>
+            </button>
+            <button class="mod-btn" data-code="NX_HDR_120" data-command="HDR_120" onclick="activateMod(this,'hdr')">
+                <svg viewBox="0 0 16 16"><polygon points="8,2 9.8,6.2 14,6.5 10.7,9.1 11.8,13 8,10.8 4.2,13 5.3,9.1 2,6.5 6.2,6.2"/></svg>
+                <span>Ultra HDR 120FPS</span>
+            </button>
+        </div>
+        <div class="section-title section-title-lg">Emulator</div>
+        <div class="controls-container">
+            <button class="mod-btn" data-code="NX_LAUNCH_EMULATOR" data-command="LAUNCH_EMULATOR" onclick="startEmulator(this)">
+                <svg viewBox="0 0 16 16">
+                    <rect x="2" y="3" width="12" height="9" rx="1.5" ry="1.5" fill="none" stroke="#e5e7eb" stroke-width="1.4"/>
+                    <rect x="5" y="12.5" width="6" height="1" fill="#e5e7eb"/>
+                </svg>
+                <span>Launch Emulator</span>
+            </button>
+            <button class="mod-btn" data-code="NX_LAUNCH_GAME" data-command="LAUNCH_GAME" onclick="startGame(this)">
+                <svg viewBox="0 0 16 16"><polygon points="5,4 12,8 5,12"/></svg>
+                <span>Launch Game</span>
+            </button>
+            <button class="mod-btn" data-code="NX_STOP_EMULATOR" data-command="STOP_EMULATOR" onclick="killEmulator(this)">
+                <svg viewBox="0 0 16 16"><rect x="4" y="4" width="8" height="8"/></svg>
+                <span>Stop Emulator</span>
+            </button>
+        </div>
+        <div class="section-title notice-title">NOTICE</div>
+        <div class="dashboard-note">
+            <p>This is the free edition and not the full version. To purchase, contact us:</p>
+            <div class="social-links social-links-inline">
+                <a href="https://t.me/NxStoreofficial" class="social-link social-link-telegram" aria-label="Telegram channel" title="Telegram" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 16 16">
+                        <path d="M15.5 2.5 13.6 14.2c-.2 1.1-.9 1.4-1.9.9l-4.3-3.2-2.1 2a1.3 1.3 0 0 1-1 .4l.4-4.5L12.7 3.2c.6-.5-0.1-.7-.8-.2L3.8 8.1 1 7.2C0 6.9 0 6.1 1.1 5.6l13.2-5.1c.9-.3 1.7.2 1.2 2z"/>
+                    </svg>
+                </a>
+                <a href="https://discord.gg/nxgamingstore" class="social-link social-link-discord" aria-label="Discord server" title="Discord" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 16 16">
+                        <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025 13.235 13.235 0 0 0-3.257 1.011.047.047 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c0 .017.01.033.021.047a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059l-.018-.012c-.45-.169-.875-.376-1.275-.619a.05.05 0 0 1-.02-.066l.015-.02c.086-.114.173-.23.254-.347a.05.05 0 0 1 .065-.017c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .066.017c.081.117.168.233.254.347a.051.051 0 0 1-.019.066 8.3 8.3 0 0 1-1.276.619.05.05 0 0 0-.018.012.05.05 0 0 0-.01.059c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.035c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
+                    </svg>
+                </a>
+                <a href="https://www.tiktok.com/@nxtiktoktv?_r=1&_t=ZS-937AgsT8Ogh" class="social-link social-link-tiktok" aria-label="TikTok profile" title="TikTok" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 16 16">
+                        <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Particles for Background Effect (Optional Luxury) -->
+    <div id="notification-container" role="status" aria-live="polite"></div>
+
+    <script>
+        const loadingTitle = document.getElementById('loading-title');
+        const loadingTextPrimary = document.getElementById('loading-text-primary');
+        const loadingTextSecondary = document.getElementById('loading-text-secondary');
+
+        setTimeout(() => {
+            if (loadingTitle && loadingTextPrimary) {
+                loadingTitle.textContent = 'INITIALIZING ENGINE...';
+                loadingTextPrimary.textContent = 'Loading core modules, reading configs and preparing safe tweaks...';
+            }
+        }, 900);
+
+        setTimeout(() => {
+            if (loadingTitle && loadingTextSecondary) {
+                loadingTitle.textContent = 'UNLOCK FULL VERSION';
+                loadingTextSecondary.style.display = 'block';
+            }
+        }, 2200);
+
+        setTimeout(() => {
+            const loading = document.getElementById('loading');
+            const welcome = document.getElementById('welcome');
+            if (loading && welcome) {
+                loading.style.display = 'none';
+                welcome.style.display = 'block';
+            }
+        }, 7200);
+
+        // Enter Dashboard
+        function enterDashboard(el) {
+            document.getElementById('welcome').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'flex';
+            const code = el && el.dataset ? el.dataset.code : 'NX_ENTER_DASHBOARD';
+            const command = el && el.dataset ? el.dataset.command : 'ENTER_DASHBOARD';
+            const args = parseArgs(el && el.dataset ? el.dataset.args : '');
+            sendToHost('enterDashboard', { code, command, args });
+        }
+
+        const notificationContainer = document.getElementById('notification-container');
+        let pendingNotification = null;
+
+        function showNotification(message, type = 'info') {
+            if (!notificationContainer) return;
+            if (type === 'info') {
+                if (pendingNotification && pendingNotification.isConnected) {
+                    const t = pendingNotification.querySelector('.notification-message');
+                    if (t) t.textContent = message;
+                    pendingNotification.setAttribute('aria-busy', 'true');
+                    if (!pendingNotification.querySelector('.notification-spinner')) {
+                        const succ = pendingNotification.querySelector('.notification-icon-success');
+                        const err = pendingNotification.querySelector('.notification-icon-error');
+                        if (succ) succ.remove();
+                        if (err) err.remove();
+                        const spinner = document.createElement('span');
+                        spinner.className = 'notification-spinner';
+                        pendingNotification.insertBefore(spinner, t);
+                    }
+                    return;
+                }
+                const wrapper = document.createElement('div');
+                wrapper.className = 'notification notification-info';
+                wrapper.setAttribute('aria-busy', 'true');
+                const spinner = document.createElement('span');
+                spinner.className = 'notification-spinner';
+                const text = document.createElement('div');
+                text.className = 'notification-message';
+                text.textContent = message;
+                const close = document.createElement('button');
+                close.className = 'notification-close';
+                close.textContent = '×';
+                close.onclick = () => {
+                    wrapper.classList.remove('notification-show');
+                    setTimeout(() => wrapper.remove(), 200);
+                    if (pendingNotification === wrapper) pendingNotification = null;
+                };
+                wrapper.appendChild(spinner);
+                wrapper.appendChild(text);
+                wrapper.appendChild(close);
+                notificationContainer.appendChild(wrapper);
+                requestAnimationFrame(() => wrapper.classList.add('notification-show'));
+                pendingNotification = wrapper;
+                return;
+            }
+            let wrapper = pendingNotification;
+            let textEl;
+            if (wrapper && wrapper.isConnected) {
+                wrapper.className = `notification notification-${type}`;
+                wrapper.setAttribute('aria-busy', 'false');
+                const sp = wrapper.querySelector('.notification-spinner');
+                if (sp) sp.remove();
+                textEl = wrapper.querySelector('.notification-message');
+                if (textEl) textEl.textContent = message;
+                let leading;
+                if (type === 'success') {
+                    leading = document.createElement('span');
+                    leading.className = 'notification-icon notification-icon-success';
+                    leading.innerHTML = '<svg viewBox="0 0 16 16"><path d="M13.485 1.929a1 1 0 0 1 1.415 1.414l-8 8a1 1 0 0 1-1.414 0l-3-3A1 1 0 0 1 3.9 7.929l2.293 2.293 7.292-7.293z"/></svg>';
+                } else {
+                    leading = document.createElement('span');
+                    leading.className = 'notification-icon notification-icon-error';
+                    leading.innerHTML = '<svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 1 0 14A7 7 0 0 1 8 1zm0 3a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-1.5 0v-4.5A.75.75 0 0 1 8 4zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>';
+                }
+                wrapper.insertBefore(leading, textEl);
+                wrapper.classList.add('notification-show');
+            } else {
+                wrapper = document.createElement('div');
+                wrapper.className = `notification notification-${type}`;
+                wrapper.setAttribute('aria-busy', 'false');
+                let leading;
+                if (type === 'success') {
+                    leading = document.createElement('span');
+                    leading.className = 'notification-icon notification-icon-success';
+                    leading.innerHTML = '<svg viewBox="0 0 16 16"><path d="M13.485 1.929a1 1 0 0 1 1.415 1.414l-8 8a1 1 0 0 1-1.414 0l-3-3A1 1 0 0 1 3.9 7.929l2.293 2.293 7.292-7.293z"/></svg>';
+                } else {
+                    leading = document.createElement('span');
+                    leading.className = 'notification-icon notification-icon-error';
+                    leading.innerHTML = '<svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 1 0 14A7 7 0 0 1 8 1zm0 3a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-1.5 0v-4.5A.75.75 0 0 1 8 4zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>';
+                }
+                const text = document.createElement('div');
+                text.className = 'notification-message';
+                text.textContent = message;
+                const close = document.createElement('button');
+                close.className = 'notification-close';
+                close.textContent = '×';
+                close.onclick = () => {
+                    wrapper.classList.remove('notification-show');
+                    setTimeout(() => wrapper.remove(), 200);
+                };
+                wrapper.appendChild(leading);
+                wrapper.appendChild(text);
+                wrapper.appendChild(close);
+                notificationContainer.appendChild(wrapper);
+                requestAnimationFrame(() => wrapper.classList.add('notification-show'));
+            }
+            setTimeout(() => {
+                if (!wrapper.isConnected) return;
+                wrapper.classList.remove('notification-show');
+                setTimeout(() => {
+                    if (wrapper.isConnected) wrapper.remove();
+                }, 200);
+                pendingNotification = null;
+            }, 2600);
+        }
+
+        function activateMod(el, mod) {
+            const messages = {
+                hdr: 'Applying HDR 120FPS preset...',
+                hdr60: 'Applying HDR 60FPS preset...',
+                ultra: 'Applying Ultra Smooth 120FPS preset...',
+                other: 'Applying Smooth 120FPS preset...'
+            };
+            const message = messages[mod] || `Mod "${mod.toUpperCase()}" has been activated.`;
+            showNotification(message, 'info');
+            const codeMap = { hdr: 'NX_HDR_120', hdr60: 'NX_HDR_60', ultra: 'NX_ULTRA_120', other: 'NX_SMOOTH_120' };
+            const cmdMap = { hdr: 'HDR_120', hdr60: 'HDR_60', ultra: 'ULTRA_120', other: 'SMOOTH_120' };
+            const code = el && el.dataset ? el.dataset.code : (codeMap[mod] || 'NX_MOD');
+            const command = el && el.dataset ? el.dataset.command : (cmdMap[mod] || 'MOD');
+            const args = parseArgs(el && el.dataset ? el.dataset.args : '');
+            sendToHost('activateMod', { mod, code, command, args });
+        }
+
+        function startGame(el) {
+            showNotification('Launching PUBG with your current mod profile...', 'info');
+            const code = el && el.dataset ? el.dataset.code : 'NX_LAUNCH_GAME';
+            const command = el && el.dataset ? el.dataset.command : 'LAUNCH_GAME';
+            const args = parseArgs(el && el.dataset ? el.dataset.args : '');
+            sendToHost('startGame', { code, command, args });
+        }
+
+        function startEmulator(el) {
+            showNotification('Starting emulator instance...', 'info');
+            const code = el && el.dataset ? el.dataset.code : 'NX_LAUNCH_EMULATOR';
+            const command = el && el.dataset ? el.dataset.command : 'LAUNCH_EMULATOR';
+            const args = parseArgs(el && el.dataset ? el.dataset.args : '');
+            sendToHost('startEmulator', { code, command, args });
+        }
+
+        function killEmulator(el) {
+            showNotification('Stopping emulator process...', 'info');
+            const code = el && el.dataset ? el.dataset.code : 'NX_STOP_EMULATOR';
+            const command = el && el.dataset ? el.dataset.command : 'STOP_EMULATOR';
+            const args = parseArgs(el && el.dataset ? el.dataset.args : '');
+            sendToHost('killEmulator', { code, command, args });
+        }
+        const hasHost = !!(window.chrome && window.chrome.webview);
+        function parseArgs(s) {
+            const out = {};
+            if (!s) return out;
+            String(s).split(';').forEach(p => {
+                const [k, v] = p.split('=');
+                if (k) out[k.trim()] = (v || '').trim();
+            });
+            return out;
+        }
+        function sendToHost(type, payload = {}) {
+            try {
+                if (hasHost) {
+                    window.chrome.webview.postMessage({ type, payload });
+                } else if (window.external && typeof window.external.InvokeMethod === 'function') {
+                    window.external.InvokeMethod(JSON.stringify({ type, payload }));
+                }
+            } catch (_) {}
+        }
+        function handleHostMessage(data) {
+            const d = data || {};
+            switch (d.type) {
+                case 'showNotification':
+                    if (d.payload && d.payload.message) {
+                        showNotification(d.payload.message, d.payload.kind || 'info');
+                    }
+                    break;
+                case 'enterDashboard':
+                    enterDashboard();
+                    break;
+                case 'activateMod':
+                    if (d.payload && d.payload.mod) activateMod(String(d.payload.mod));
+                    break;
+                case 'startGame':
+                    startGame();
+                    break;
+                case 'startEmulator':
+                    startEmulator();
+                    break;
+                case 'killEmulator':
+                    killEmulator();
+                    break;
+                case 'click':
+                    if (d.payload && d.payload.id) {
+                        const el = document.getElementById(String(d.payload.id));
+                        if (el && typeof el.click === 'function') el.click();
+                    }
+                    break;
+                case 'exec':
+                    if (d.payload && d.payload.command) {
+                        const c = String(d.payload.command);
+                        switch (c) {
+                            case 'ENTER_DASHBOARD': enterDashboard(); break;
+                            case 'HDR_120': activateMod(null,'hdr'); break;
+                            case 'HDR_60': activateMod(null,'hdr60'); break;
+                            case 'ULTRA_120': activateMod(null,'ultra'); break;
+                            case 'SMOOTH_120': activateMod(null,'other'); break;
+                            case 'LAUNCH_EMULATOR': startEmulator(); break;
+                            case 'LAUNCH_GAME': startGame(); break;
+                            case 'STOP_EMULATOR': killEmulator(); break;
+                            default: break;
+                        }
+                    }
+                    break;
+                case 'setStyle':
+                    document.body.classList.add('theme-minimal');
+                    break;
+                default:
+                    break;
+            }
+        }
+        if (hasHost) {
+            window.chrome.webview.addEventListener('message', e => handleHostMessage(e.data));
+            window.chrome.webview.postMessage({
+                type: 'ready',
+                payload: {
+                    code: 'NX_READY',
+                    command: 'READY',
+                    version: '1.0',
+                    title: 'NX TWEAKER',
+                    features: ['mods', 'controls', 'notifications', 'loading', 'welcome']
+                }
+            });
+        }
+
+        document.querySelectorAll('a.social-link').forEach(a => {
+            a.setAttribute('target', '_blank');
+            a.setAttribute('rel', 'noopener noreferrer');
+            a.addEventListener('click', e => {
+                const href = a.getAttribute('href');
+                if (!href || href === '#') return;
+                if (hasHost) {
+                    e.preventDefault();
+                    sendToHost('openExternal', { href });
+                }
+            });
+        });
+        
+    </script>
+</body>
+</html>
